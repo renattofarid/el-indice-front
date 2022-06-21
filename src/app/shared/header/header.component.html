@@ -1,0 +1,279 @@
+<!-- Header -->
+<header class="rt-header sticky-on">
+
+  <!-- sticky-placeholder -->
+  <div id="sticky-placeholder"></div>
+
+  <!-- start  topbar -->
+  <div class="topbar topbar-style-1" id="topbar-wrap">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-7">
+          <div class="rt-trending rt-trending-style-1">
+            <p class="trending-title">
+              <i class="fas fa-bolt icon"></i>
+              Trending
+            </p>
+            <div class="rt-treding-slider1 swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item">
+                    <p class="trending-slide-title">
+                      {{slides[0].title.toString()}}
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <p class="trending-slide-title">
+                      {{slides[1].title.toString()}}
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <p class="trending-slide-title">
+                      {{slides[2].title.toString()}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end col -->
+
+        <div class="col-lg-5">
+          <div class="rt-topbar-right">
+            <div class="meta-wrap">
+              <span class="rt-meta">
+                <i class="far fa-calendar-alt icon"></i>
+                <span class="currentDate">
+                  DECEMBER 9, 2022
+                </span>
+              </span>
+            </div>
+            <div class="social-wrap d-none d-xl-block">
+              <ul class="rt-top-social">
+                <li class="follow">Follow Us:</li>
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+                <li><a href="https://www.pinterest.com/" target="_blank">
+                    <i class="fab fa-pinterest-p"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.whatsapp.com/" target="_blank">
+                    <i class="fab fa-skype"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <!-- end col -->
+
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end topbar -->
+
+  <!-- header-middlebar -->
+  <div class="header-middlebar header-middlebar-style-8" id="middlebar-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex align-items-center justify-content-between gap-4">
+
+          <!-- start logo here -->
+          <div class="site-branding">
+            <a class="dark-logo" href="index.html"><img width="162" height="52"
+                src="./assets/web/media/logo/logo-dark.svg" alt="neeon"></a>
+            <a class="light-logo" href="index.html"><img width="162" height="52"
+                src="./assets/web/media/logo/el-indice.png" alt="neeon"></a>
+          </div>
+          <!-- end logo here -->
+
+          <div class="ad-banner-img">
+            <a href="#">
+              <img src="./assets/web/media/gallery/travel-ad_1.jpg" alt="travel-ad_1" width="850" height="90">
+            </a>
+          </div>
+          <!-- end ad-banner-img -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end header-middlebar -->
+
+  <!-- Header Main -->
+  <div class="header-main header-main-style-8 navbar-wrap" id="navbar-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex align-items-center justify-content-between">
+
+          <!-- start header action -->
+          <div class="humburger-area">
+            <div class="item humburger offcanvas-menu-btn menu-status-open">
+              <span></span>
+            </div>
+          </div>
+          <!-- end header action -->
+
+          <!-- start main menu -->
+          <div class="main-menu">
+            <nav class="main-menu__nav">
+              <ul>
+                <li class="main-menu" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                  true}">
+                  <a class="animation" [routerLink]="['/']">Inicio</a>
+                </li>
+                <li class="main-menu" routerLinkActive="active">
+                  <a class="animation" [routerLink]="['/nosotros']">Nosotros</a>
+                </li>
+                <li class="main-menu" routerLinkActive="active">
+                  <a class="animation" [routerLink]="['/posts/30']">Single Post</a>
+                </li>
+                <li class="main-menu__nav_sub list">
+                  <a class="animation" href="javascript:void(0)">Categorías</a>
+                  <ul class="main-menu__dropdown">
+                    <li class="main-menu__nav_sub">
+                      <a href="javascript:void(0)">
+                        Post Layout
+                      </a>
+                      <ul>
+                        <li><a href="single-post1.html">Single Post 01</a></li>
+                        <li><a href="single-post2.html">Single Post 02</a></li>
+                        <li><a href="single-post3.html">Single Post 03</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="author.html">Author Deatils</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- end main menu -->
+
+          <!-- start header action -->
+          <!-- <div class="search-wrapper search-wrapper-style-2">
+            <form action="#" class="form search-form-box">
+              <div class="form-group">
+                <input type="text" name="sarch" id="search" placeholder="Search . . . "
+                  class="form-control rt-search-control">
+                <button type="submit" class="search-submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div> -->
+          <!-- end header action -->
+
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- End Header Main -->
+
+</header>
+<!-- end header -->
+
+<!-- start rt-mobile-header -->
+<div class="rt-mobile-header mobile-sticky-on">
+
+  <div id="mobile-sticky-placeholder"></div>
+  <!-- end mobile-sticky-placeholder -->
+
+  <div class="mobile-top-bar" id="mobile-top-bar">
+    <ul class="mobile-top-list">
+      <li>
+        <span class="rt-meta">
+          <i class="far fa-calendar-alt icon"></i>
+          <span class="currentDate">DECEMBER 9, 2022</span>
+        </span>
+      </li>
+      <li>
+        <span class="rt-meta">
+          <i class="fas fa-map-marker-alt icon"></i>
+          Chicago 12, Melborne City, USA
+        </span>
+      </li>
+    </ul>
+  </div>
+  <!-- end mobile-top-bar -->
+
+  <div class="mobile-menu-bar-wrap" id="mobile-menu-bar-wrap">
+    <div class="mobile-menu-bar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="./assets/web/media/logo/logo-dark.svg" alt="neeon" width="162" height="52">
+        </a>
+      </div>
+      <span class="sidebarBtn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+    </div>
+    <div class="rt-slide-nav">
+      <div class="offscreen-navigation">
+        <nav class="menu-main-primary-container">
+          <ul class="menu">
+            <li class="list menu-item-has-children">
+              <a class="animation" href="javascript:void(0)">Home</a>
+              <ul class="main-menu__dropdown sub-menu">
+                <li><a href="index.html">Home 01 - Main</a></li>
+                <li><a href="index2.html">Home 02 - Technology</a></li>
+                <li><a href="index3.html">Home 03 - Gaming</a></li>
+                <li><a href="index4.html">Home 04 - Illustration</a></li>
+                <li><a href="index5.html">Home 05 - Newspaper</a></li>
+                <li><a href="index6.html">Home 06 - Magazine</a></li>
+                <li><a href="index7.html">Home 07 - Sports</a></li>
+                <li><a href="index8.html">Home 08 - Travels</a></li>
+                <li><a href="index9.html">Home 09 - Fitness</a></li>
+              </ul>
+            </li>
+            <li class="list menu-item">
+              <a href="" class="animation" [routerLink]="['/']" routerLinkActive="active-mobile"
+                [routerLinkActiveOptions]="{exact:
+                true}">
+                Inicio
+              </a>
+            </li>
+            <li class="list menu-item">
+              <a href="" class="animation" [routerLink]="['/nosotros']" routerLinkActive="active-mobile"
+                [routerLinkActiveOptions]="{exact:
+                true}">
+                Nosotros
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<!-- end rt-mobile-header -->

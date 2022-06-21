@@ -1,0 +1,217 @@
+<!-- Start inner page Banner -->
+<div class="banner inner-banner" *ngIf="exist">
+  <div class="container">
+    <nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/']">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/']">
+            {{ post.categoria['name'] }}
+          </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <span class="rt-text-truncate">
+            {{ post.title }}
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- End inner page Banner -->
+
+<!-- start rt-sidebar-section-layout-2 -->
+<section class="rt-sidebar-section-layout-2">
+  <div class="container">
+    <div class="row gutter-40 sticky-coloum-wrap">
+
+      <div class="col-xl-9 sticky-coloum-item" *ngIf="exist">
+        <div class="rt-left-sidebar-sapcer-5">
+
+          <div class="rt-main-post-single grid-meta">
+
+            <!-- start post header -->
+            <div class="post-header">
+              <span class="rt-cat-primary">{{ post.categoria.name }}
+              </span>
+              <h2 class="title">
+                {{ post.title }}
+              </h2>
+              <div class="post-meta">
+                <ul>
+                  <li>
+                    <span class="rt-meta">
+                      Autor: <p class="name">{{ post.user.name }}</p>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="rt-meta">
+                      <i class="far fa-calendar-alt icon"></i>
+                      {{ post.created_at }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="share-box-area">
+                <!-- <share-buttons [show]="numOptions"></share-buttons> -->
+              </div>
+            </div>
+            <!-- end post-header -->
+
+            <!-- strat post img -->
+            <figure class="post-img">
+              <img [src]="post.imagen" alt="post-img" width="960" height="520">
+            </figure>
+            <!-- end post-img -->
+
+            <!-- strat psot body -->
+            <div class="post-body" *ngIf="post.content" [innerHTML]="post.content">
+            </div>
+            <div class="ad-banner-img mt--45 mb--40">
+              <a href="#">
+                <img src="https://radiustheme.com/demo/html/neeon/media/gallery/ad-banner_4.jpg" alt="ad-banner"
+                  width="960" height="150">
+              </a>
+            </div>
+            <!-- end post body -->
+
+            <!-- start social-share-box-2 -->
+            <div class="social-share-box-2 mb--40">
+              <div class="row gutter-30">
+                <div class="col-xl-7 col-lg-6">
+                  <div class="conent-block">
+                    <h4 class="block-tile mb--20">Tags:</h4>
+                    <div class="tag-list">
+                      <a href="#" class="tag-link" *ngFor="let tags of post.tags">
+                        {{ tags.name }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-5 col-lg-6 d-flex justify-content-start justify-content-lg-end">
+                  <div class="conent-block">
+                    <h4 class="block-tile mb--20">Share This Post:</h4>
+                    <ul class="social-share-style-1 ">
+                      <li>
+                        <a class="fb" target="_blank" href="https://www.facebook.com/">
+                          <i class="social-icon fab fa-facebook-f"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end social-share-box-2 -->
+
+            <!-- start author box -->
+            <div class="author-box-style-1 mb--50">
+              <div class="author-img">
+                <img
+                  src="https://scontent.flim14-1.fna.fbcdn.net/v/t31.18172-8/52684_1614390476171_5581731_o.jpg?_nc_cat=106&ccb=1-7&_nc_sid=de6eea&_nc_eui2=AeHElAitSWSF7dEiKNZusyxqTHAIF_3z3bBMcAgX_fPdsJPyG-z7tydaKQErRBgYKHLRwit0RtPsG6qUtCZiHfhF&_nc_ohc=hlSVNLENXX0AX8xnid4&tn=EYA3x2_hjMKGJtIU&_nc_ht=scontent.flim14-1.fna&oh=00_AT9l3Rn0gwJy8wj6TYl9Oe4JXFXKdHPF5Bfjvu8A2bF18g&oe=62D740DA"
+                  alt="author-img_1" width="170" height="170">
+              </div>
+              <div class="author-content">
+                <h3 class="author-name">{{ post.user.name }}</h3>
+                <span class="author-role">{{ post.user.rol | titlecase }}</span>
+                <p class="user-desc">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis autem repudiandae explicabo, saepe
+                  doloremque neque, laborum expedita tempora ducimus ipsa excepturi.
+                </p>
+              </div>
+
+            </div>
+            <!-- end related-post-box -->
+            <!-- <div class="blog-post-comment mb--50">
+              <disqus [identifier]="disqusIdentifier" [url]="disqusUrl" #disqus>
+              </disqus>
+            </div> -->
+            <!-- end rt-left-sidebar-sapcer-5 -->
+            <!-- end col-->
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-8 mx-auto sticky-coloum-item" *ngIf="exist">
+        <div class="rt-sidebar sticky-wrap">
+          <!-- <div class="sidebar-wrap mb--40">
+            <div class="post-banner-style-1">
+              <a href="#" class="image-link">&nbsp;</a>
+              <div class="post-content">
+                <div class="logo">
+                  <a href="index.html">
+                    <img src="media/logo/logo-light.svg" alt="logo" width="162" height="52">
+                  </a>
+                </div>
+                <h3 class="title">
+                  <a href="#">
+                    The Most Powerful
+                    <span>News & Magazine WP Theme</span>
+                  </a>
+                </h3>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-white-sm">
+                    shop now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="sidebar-wrap mb--40">
+            <h2 class="rt-section-heading style-2 mb--30">
+              <span class="rt-section-text">Anuncios</span>
+              <span class="rt-section-dot"></span>
+              <span class="rt-section-line"></span>
+            </h2>
+            <div class="row rt-gutter-10">
+
+              <div class="col-6" *ngFor="let anuncio of post.anuncios">
+                <div class="rt-post-grid post-grid-md grid-meta">
+                  <div class="post-img">
+                    <a
+                      href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
+                      <img src="../../../assets/web/media/gallery/post-grid-md_2.jpg" alt="post" width="343"
+                        height="250">
+                    </a>
+                  </div>
+                  <div class="post-content">
+                    <a href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios."
+                      class="rt-post-cat-normal" [ngStyle]="{
+                        'background-color': anuncio.categoria_anuncio.color}"
+                      style="padding: 0.1rem; color: #000">{{anuncio.categoria_anuncio.name}}</a>
+                    <h4 class="post-title">
+                      <a
+                        href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
+                        {{anuncio.name}}
+                      </a>
+                    </h4>
+                    <span class="rt-meta">
+                      <i class="fas fa-map-marker-alt"></i>
+                      {{anuncio.address}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end row -->
+
+          </div>
+          <div class="sidebar-wrap mb--40">
+            <h2 class="rt-section-heading style-2 mb--30">
+              <span class="rt-section-text">Tags </span>
+              <span class="rt-section-dot"></span>
+              <span class="rt-section-line"></span>
+            </h2>
+            <div class="tag-list">
+              <a href="#" class="tag-link" *ngFor="let tags of post.tags">{{ tags.name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

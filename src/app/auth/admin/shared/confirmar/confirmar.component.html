@@ -1,0 +1,23 @@
+<div>
+  <h1 mat-dialog-title>¿Estás seguro?</h1>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
+    <p><small>Estás a punto de borrar el post: </small> <b>{{data.title}}</b> </p>
+  </div>
+  <div>
+    <div mat-dialog-actions class="justify-content-end">
+      <div class="row d-flex justify-content-between">
+        <div class="col-6">
+          <button mat-raised-button color="info" (click)="cancelar()">
+            No gracias.
+          </button>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button color="warn" (click)="borrar()" cdkFocusInitial>
+            Borrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

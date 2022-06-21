@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <!-- Floating Labels Form -->
+        <form class="row g-3" [formGroup]="postForm" autocomplete="off">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ (!isExist) ? 'Crear' : 'Actualizar' }} Post</h5>
+            <div class="form-check form-switch d-flex align-items-center gap-1">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=""
+                formControlName="published">
+              <label class="form-check-label" for="flexSwitchCheckChecked">Publicado</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="titulopost" formControlName="title">
+              <label for="titulopost">Título</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="imagen" formControlName="imagen">
+              <label for="imagen">Url de la imagen</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="descripcion" formControlName="description">
+              <label for="descripcion">Breve Descripción</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Tags</mat-label>
+              <mat-select formControlName="tags" multiple>
+                <mat-option *ngFor="let tag of tagList" [value]="tag.id">{{tag.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Categoría</mat-label>
+                <mat-select formControlName="categoria_id">
+                  <mat-option *ngFor="let cat of categoriesList" [value]="cat.id">
+                    {{cat.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Anuncios</mat-label>
+              <mat-select formControlName="anuncios" multiple>
+                <mat-option *ngFor="let service of servicesList" [value]="service.id">{{service.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+          <mat-divider></mat-divider>
+          <div class="d-flex justify-content-between gap-1">
+            <div class="elements gap-1" *ngIf="!toggleHtml">
+              <button class="btn btn-success btn-sm m-1" (click)="insertarParrafoInicial()">p inicial</button>
+              <button class="btn btn-info btn-sm m-1" (click)="insertarParrafo()">p</button>
+              <button class="btn btn-dark btn-sm m-1" (click)="insertarTitulo()">título</button>
+              <button class="btn btn-warning btn-sm m-1" (click)="insertarBlockquote()">cita</button>
+              <button class="btn btn-primary btn-sm m-1" (click)="insertarSubseccion()">sub-sección</button>
+              <button class="btn btn-secondary btn-sm m-1" (click)="insertarLista()">lista</button>
+              <button class="btn btn-danger btn-sm m-1" (click)="insertar2colimg()">2col-img</button>
+            </div>
+            <div>
+              <button (click)="toggleEditar()" class="btn btn-primary btn-sm"><i class="fas"
+                  [ngClass]="toggleHtml ? 'fa-edit' : 'fa-eye'"></i>
+                {{ (!toggleHtml) ? 'Ver prev.' : 'Editar HTML' }}</button>
+            </div>
+          </div>
+          <div class="col-12" *ngIf="!toggleHtml">
+            <div class="form-floating">
+              <mat-form-field class="example-full-width w-100" appearance="fill">
+                <mat-label>Contenido del post</mat-label>
+                <textarea matInput placeholder="Escribe el contenido de tu post..." style="height: 8rem;"
+                  formControlName="content" #txtContenido></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="card p-3" *ngIf="toggleHtml">
+            <div class="card-body">
+              <div class="rt-main-post-single grid-meta">
+                <div class="post-header">
+                  <span class="rt-cat-primary" *ngIf="postForm.value.categoria_id">
+                    {{ categoriesList[postForm.value.categoria_id-1].name  }}
+                  </span>
+                  <h2 class="title" *ngIf="postForm.value.title" contenteditable
+                    (keydown.control.s)="onContextChange($event.target,'title')">
+                    {{ postForm.value.title }}
+                  </h2>
+                  <p *ngIf="postForm.value.description" contenteditable
+                    (keydown.control.s)="onContextChange($event.target,'description')"> {{ postForm.value.description }}
+                  </p>
+                </div>
+                <figure class="post-img">
+                  <img *ngIf="!(postForm.value.imagen.trim()==='')" [src]="postForm.value.imagen" alt="" width="960"
+                    height="520">
+                </figure>
+              </div>
+              <div class="post-body" *ngIf="postForm.value.content" [innerHTML]="postForm.value.content" contenteditable
+                (keydown.control.s)="onContextChange($event.target,'content')">
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between text-center">
+            <a [routerLink]="['/auth/posts']" class="btn btn-danger text-white">Regresar</a>
+            <button (click)="guardarPost()" class="btn btn-primary">{{ (!isExist) ? 'Crear' : 'Actualizar' }}
+              Post</button>
+          </div>
+        </form><!-- End floating Labels Form -->
+        <div class="d-none">
+          <pre>
+            {{ this.postForm.value | json }}
+          </pre>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

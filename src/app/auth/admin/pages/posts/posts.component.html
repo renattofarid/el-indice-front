@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-12">
+    <!-- <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row align-items-center justify-content-between gap-1">
+          <h5 class="card-title">Lista de Posts</h5>
+          <button class="btn btn-warning gap-1" routerLink="/auth/posts/nuevo">
+            <i class="fas fa-plus-circle"></i>
+            Nuevo Post</button>
+
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Título</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Fecha</th>
+              <th scope="col" class="d-flex justify-content-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of posts">
+              <th scope="row">{{post.id}}</th>
+              <td>{{ post.title  }}</td>
+              <td>
+                {{ post.categoria.name }}
+              </td>
+              <td>{{ post.created_at }}</td>
+              <td>
+                <div class="d-flex flex-row align-items-center justify-content-center gap-1">
+                  <a class="btn btn-primary" style="text-decoration: none; color: white;"
+                    routerLink="/auth/posts/editar/{{post.id}}"><i class="fas fa-edit"></i></a>
+                  <button class="btn btn-danger" (click)="borrar(post.id)"><i class="fas fa-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row align-items-center justify-content-between gap-1">
+          <h5 class="card-title">Lista de Posts</h5>
+          <button mat-raised-button color="accent" routerLink="/auth/posts/nuevo"><i class="fas fa-plus-circle"></i>
+            Nuevo Post</button>
+        </div>
+        <table mat-table [dataSource]="dataSource" matSort style="width: 100% !important; margin-bottom: 1.2rem;">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 35% !important;"> Título </th>
+            <td mat-cell *matCellDef="let element" style="width: 35% !important;"> {{element.title}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef> Categoría </th>
+            <td mat-cell *matCellDef="let element"> {{element.categoria.name}} </td>
+          </ng-container>
+
+          <!-- Fecha -->
+          <ng-container matColumnDef="created_at">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+          </ng-container>
+
+          <!-- Acciones -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+              <div class="d-flex justify-content-center">Acciones</div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="d-flex flex-row align-items-center justify-content-center gap-1">
+                <a class="btn btn-primary" style="text-decoration: none; color: white;"
+                  routerLink="/auth/posts/editar/{{element.id}}"><i class="fas fa-edit"></i></a>
+                <button class="btn btn-danger" (click)="borrar(element.id)"><i class="fas fa-trash"></i></button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+          aria-label="Selecciona la página de tus posts">
+        </mat-paginator>
+      </div>
+    </div>
+
+  </div>
+</div>
