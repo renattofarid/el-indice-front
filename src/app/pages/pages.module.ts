@@ -9,6 +9,8 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { DisqusModule } from 'ngx-disqus';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DisqusModule } from 'ngx-disqus';
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-    DisqusModule.forRoot('ngx')
+    DisqusModule.forRoot('ngx'),
+    ShareButtonsModule,
+    ShareIconsModule
   ]
 })
 export class PagesModule { }

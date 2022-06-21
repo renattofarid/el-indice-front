@@ -104,7 +104,7 @@
                   </p>
                 </div>
                 <figure class="post-img">
-                  <img *ngIf="!(postForm.value.imagen.trim()==='')" [src]="postForm.value.imagen" alt="" width="960"
+                  <img *ngIf="!(postForm.value.imagen!.trim()==='')" [src]="postForm.value.imagen" alt="" width="960"
                     height="520">
                 </figure>
               </div>

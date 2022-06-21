@@ -1,4 +1,8 @@
 <!-- Start inner page Banner -->
+
+<head *ngIf="exist">
+  <meta property="og:image" [content]="post.imagen" />
+</head>
 <div class="banner inner-banner" *ngIf="exist">
   <div class="container">
     <nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
@@ -56,10 +60,16 @@
                     </span>
                   </li>
                 </ul>
+                <div class="share-box-area">
+                  <share-buttons theme="modern-dark"
+                    [include]="['copy', 'facebook','twitter', 'whatsapp', 'messenger', 'email', 'pinterest', 'print', 'sms', 'telegram', 'tumblr', ]"
+                    [showIcon]="true" [showText]="true" [url]="linkShare" [description]="post.description"
+                    twitterAccount="" class="" [image]="post.imagen">
+                  </share-buttons>
+                  <!-- <share-buttons [show]="numOptions"></share-buttons> -->
+                </div>
               </div>
-              <div class="share-box-area">
-                <!-- <share-buttons [show]="numOptions"></share-buttons> -->
-              </div>
+
             </div>
             <!-- end post-header -->
 

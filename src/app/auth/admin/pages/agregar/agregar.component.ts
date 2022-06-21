@@ -27,11 +27,11 @@ export class AgregarComponent implements OnInit {
     title: ['', [Validators.required]],
     description: ['', [Validators.required]],
     content: ['', [Validators.required]],
-    tags: ['', [Validators.required]],
-    categoria_id: ['', [Validators.required]],
-    published: ['1', [Validators.required]],
+    tags: [[0], [Validators.required]],
+    categoria_id: [0, [Validators.required]],
+    published: [true, [Validators.required]],
     imagen: ['', [Validators.required]],
-    anuncios: ['', [Validators.required]],
+    anuncios: [[0], [Validators.required]],
   })
 
   constructor(
@@ -183,11 +183,11 @@ export class AgregarComponent implements OnInit {
       title: this.postForm.value['title'],
       description: this.postForm.value['description'],
       content: this.postForm.value['content'],
-      tags: this.postForm.value['tags'].toString(),
+      tags: this.postForm.value['tags']!.toString(),
       categoria_id: this.postForm.value['categoria_id'],
       published: this.postForm.value['published'],
       imagen: this.postForm.value['imagen'],
-      anuncios: this.postForm.value['anuncios'].toString(),
+      anuncios: this.postForm.value['anuncios']!.toString(),
 
     }
     if (this.postForm.invalid) {

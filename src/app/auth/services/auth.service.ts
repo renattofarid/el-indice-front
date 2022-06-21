@@ -36,7 +36,7 @@ export class AuthService {
     )
   }
 
-  login(formData: Login) {
+  login(formData: any) {
     return this.http.post<LoginResponse>(`${this._baseUrl}/api/login`, formData)
       .pipe(
         tap(resp => {

@@ -15,15 +15,15 @@ export class SinglePostComponent implements OnInit {
 
   post!: Post;
   exist: boolean = false;
+  linkShare!: string;
+  imageShare!: string;
 
-  @ViewChild('disqus') disqus!: ElementRef;
+  @ViewChild('head') head!: ElementRef<HTMLHeadElement>;
   constructor(
     private adminService: AdminService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -34,6 +34,8 @@ export class SinglePostComponent implements OnInit {
       next: post => {
         this.post = post;
         this.exist = true;
+        this.linkShare = 'https://el-indice.com/#/posts/' + post.id;
+        this.imageShare = post.imagen
       },
       error: () => {
         this.router.navigateByUrl('/')
