@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="row g-3" [formGroup]="anuncioForm" autocomplete="off">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title">{{ (!isExist) ? 'Crear' : 'Actualizar' }} Anuncio</h5>
+              <div class="form-check form-switch d-flex align-items-center gap-1">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked=""
+                  formControlName="status">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Publicado</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="titulopost" formControlName="name">
+                <label for="titulopost">Nombre del Anunciante</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="imagen" formControlName="image">
+                <label for="imagen">Url de la imagen</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="descripcion" formControlName="description">
+                <label for="descripcion">Breve Descripción</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="direccion" formControlName="address">
+                  <label for="direccion">Dirección</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="cellphone" formControlName="cellphone">
+                  <label for="cellphone">Telefono</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="phone" formControlName="phone">
+                  <label for="phone">Numero fijo</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Tags</mat-label>
+                <mat-select formControlName="tags" multiple>
+                  <mat-option *ngFor="let tag of tagList" [value]="tag.id">{{tag.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+  
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Categoría</mat-label>
+                  <mat-select formControlName="categoria_anuncios_id">
+                    <mat-option *ngFor="let cat of catAnun" [value]="cat.id">
+                      {{cat.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+  
+            <div class="d-flex justify-content-between text-center">
+              <a [routerLink]="['/auth/anuncios']" class="btn btn-danger text-white">Regresar</a>
+              <button (click)="guardarAnuncio()" class="btn btn-primary">{{ (!isExist) ? 'Crear' : 'Actualizar' }}
+                Anuncio</button>
+            </div>
+          </form><!-- End floating Labels Form -->
+          <div class="d-none">
+            <pre>
+              {{ this.anuncioForm.value | json }}
+            </pre>
+          </div>
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+  

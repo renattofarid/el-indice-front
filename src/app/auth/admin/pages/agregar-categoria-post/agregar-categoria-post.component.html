@@ -1,0 +1,32 @@
+<h1 mat-dialog-title><small>{{(data.mode) ? 'Editar' : 'Crear'}} Categoría de:</small>  {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Completa los campos:</p>
+  <form action="" [formGroup]="formCategoria" autocomplete="off">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Color</mat-label>
+        <input matInput [ngxMatColorPicker]="picker" formControlName="color" [disabled]="false">
+        <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+        <ngx-mat-color-picker #picker [touchUi]="true" [color]="color"></ngx-mat-color-picker>
+    </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100" *ngIf="this.data.name === 'Posts'">
+        <mat-label>Imagen</mat-label>
+        <input matInput formControlName="image">
+      </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="primary"  cdkFocusInitial (click)="guardar()" >{{(data.mode) ? 'Actualizar' : 'Guardar'}}</button>
+</div>
+
+<pre class="pt-4">
+    {{ formCategoria.value.color!['hex'] | json }}
+</pre>

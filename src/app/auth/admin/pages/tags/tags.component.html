@@ -1,0 +1,25 @@
+<div class="d-flex flex-row align-items-center justify-content-between gap-1">
+    <h1 class="pagetitle">Tags!</h1>
+    <button mat-raised-button color="accent" (click)="crearTag()"><i class="fas fa-plus-circle"></i>
+      Nuevo Tag</button>
+  </div>
+<div class="row">
+    <div class="col-4 pt-2" *ngFor="let tag of _tags">
+        <mat-card> 
+            <mat-card-title>{{ tag.name }}</mat-card-title>
+            <mat-card-content>
+                <mat-form-field class="w-100" appearance="fill" *ngIf="isEditable">
+                    <mat-label>Clearable input</mat-label>
+                    <input matInput type="text" [value]="tag.name">
+                    <button  matSuffix mat-icon-button aria-label="Clear" (click)="guardar()">
+                      <mat-icon>save</mat-icon>
+                    </button>
+                  </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions class="d-flex justify-content-between">
+                <button mat-button color="accent" (click)="editar(tag.id,tag.name)"><i class="fas fa-pen"></i></button>
+                <button mat-button color="warn" (click)="eliminar(tag.id)"><i class="fas fa-trash"></i></button>
+              </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

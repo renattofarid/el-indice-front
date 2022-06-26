@@ -45,7 +45,7 @@
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label>Categoría</mat-label>
                 <mat-select formControlName="categoria_id">
-                  <mat-option *ngFor="let cat of categoriesList" [value]="cat.id">
+                  <mat-option *ngFor="let cat of categoriesList" [value]="cat.id" (click)="cambiar(cat.id)">
                     {{cat.name}}
                   </mat-option>
                 </mat-select>
@@ -92,8 +92,9 @@
             <div class="card-body">
               <div class="rt-main-post-single grid-meta">
                 <div class="post-header">
-                  <span class="rt-cat-primary" *ngIf="postForm.value.categoria_id">
-                    {{ categoriesList[postForm.value.categoria_id-1].name  }}
+                  <span class="rt-cat-primary" *ngIf="postForm.value.categoria_id" [ngStyle]="{
+                    'background-color': '#'+cat['color']}">
+                    {{  cat['name']  }} 
                   </span>
                   <h2 class="title" *ngIf="postForm.value.title" contenteditable
                     (keydown.control.s)="onContextChange($event.target,'title')">

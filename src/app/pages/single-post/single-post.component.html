@@ -41,7 +41,8 @@
 
             <!-- start post header -->
             <div class="post-header">
-              <span class="rt-cat-primary">{{ post.categoria.name }}
+              <span class="rt-cat-primary" [ngStyle]="{
+                'background-color': '#'+post.categoria.color}">{{ post.categoria.name }}
               </span>
               <h2 class="title">
                 {{ post.title }}
@@ -66,7 +67,6 @@
                     [showIcon]="true" [showText]="true" [url]="linkShare" [description]="post.description"
                     twitterAccount="" class="" [image]="post.imagen">
                   </share-buttons>
-                  <!-- <share-buttons [show]="numOptions"></share-buttons> -->
                 </div>
               </div>
 
@@ -103,16 +103,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-5 col-lg-6 d-flex justify-content-start justify-content-lg-end">
+                <div class="col-12 d-flex justify-content-start justify-content-lg-end">
                   <div class="conent-block">
                     <h4 class="block-tile mb--20">Share This Post:</h4>
-                    <ul class="social-share-style-1 ">
-                      <li>
-                        <a class="fb" target="_blank" href="https://www.facebook.com/">
-                          <i class="social-icon fab fa-facebook-f"></i>
-                        </a>
-                      </li>
-                    </ul>
+                    <share-buttons theme="modern-dark"
+                    [include]="['copy', 'facebook','twitter', 'whatsapp', 'messenger', 'email', 'pinterest', 'print', 'sms', 'telegram', 'tumblr', ]"
+                    [showIcon]="true" [showText]="true" [url]="linkShare" [description]="post.description"
+                    twitterAccount="" class="" [image]="post.imagen">
+                  </share-buttons>
                   </div>
                 </div>
               </div>
@@ -183,19 +181,19 @@
                 <div class="rt-post-grid post-grid-md grid-meta">
                   <div class="post-img">
                     <a
-                      href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
-                      <img src="../../../assets/web/media/gallery/post-grid-md_2.jpg" alt="post" width="343"
+                      href="https://api.whatsapp.com/send?phone={{anuncio.cellphone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
+                      <img [src]="anuncio.image" alt="post" width="343"
                         height="250">
                     </a>
                   </div>
                   <div class="post-content">
-                    <a href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios."
+                    <a href="https://api.whatsapp.com/send?phone={{anuncio.cellphone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios."
                       class="rt-post-cat-normal" [ngStyle]="{
-                        'background-color': anuncio.categoria_anuncio.color}"
+                        'background-color': '#'+anuncio.categoria_anuncio.color}"
                       style="padding: 0.1rem; color: #000">{{anuncio.categoria_anuncio.name}}</a>
                     <h4 class="post-title">
                       <a
-                        href="https://api.whatsapp.com/send?phone={{anuncio.phone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
+                        href="https://api.whatsapp.com/send?phone={{anuncio.cellphone}}&text=Hola,%20te%20vi%20desde%20El%20Indice,%20estoy%20interesado%20en%20tus%20productos%20o%20servicios.">
                         {{anuncio.name}}
                       </a>
                     </h4>

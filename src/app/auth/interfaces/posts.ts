@@ -12,7 +12,7 @@ export interface PostResponse {
     published: boolean;
     tags: Tag[];
     anuncios: Anuncio[];
-    created_at: CreatedAt;
+    created_at: Date;
     actions?: string;
 }
 

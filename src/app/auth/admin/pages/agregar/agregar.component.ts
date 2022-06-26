@@ -20,7 +20,7 @@ export class AgregarComponent implements OnInit {
   isExist: boolean = false;
   postExistente!: Post;
   toggleHtml: boolean = false;
-
+  cat: any[] = [];
   @ViewChild('txtContenido') txtContenido!: ElementRef<HTMLInputElement>
 
   public postForm = this.fb.group({
@@ -54,6 +54,7 @@ export class AgregarComponent implements OnInit {
     )
       .subscribe({
         next: postExist => {
+          this.cat = this.categoriesList.find(e => e.id === postExist.categoria.id);
           this.postExistente = postExist;
           this.isExist = true;
           const anunExist = this.postExistente.anuncios.map((a) => a.id)
@@ -73,6 +74,10 @@ export class AgregarComponent implements OnInit {
           this.router.navigateByUrl('/auth/posts')
         }
       });
+  }
+
+  cambiar(id) {
+    this.cat = this.categoriesList.find(e => e.id === id);
   }
 
   toggleEditar() {
@@ -225,6 +230,7 @@ export class AgregarComponent implements OnInit {
     this.adminService.categorias().subscribe({
       next: resp => {
         this.categoriesList = resp;
+        console.log(this.categoriesList);
       }
     })
   }
