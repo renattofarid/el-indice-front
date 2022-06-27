@@ -17,6 +17,12 @@
   padding-right: 5px;
   color: #012970;
 }
+.h-400{
+  height: 300px;
+}
+.h-0{
+  height: auto;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
