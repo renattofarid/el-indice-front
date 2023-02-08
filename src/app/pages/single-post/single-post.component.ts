@@ -3,6 +3,7 @@ import { AdminService } from '../../auth/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Post } from '../../auth/interfaces/post';
 import { switchMap } from 'rxjs';
+import { ScriptService } from 'src/app/auth/admin/pages/images/script.service';
 
 
 @Component({
@@ -20,12 +21,14 @@ export class SinglePostComponent implements OnInit {
 
   @ViewChild('head') head!: ElementRef<HTMLHeadElement>;
   constructor(
+    private ss: ScriptService,
     private adminService: AdminService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.ss.loadScriptsWeb();
     this.activatedRoute.params.pipe(
       switchMap(
         ({ id }) => this.adminService.getPost(id)
@@ -34,7 +37,7 @@ export class SinglePostComponent implements OnInit {
       next: post => {
         this.post = post;
         this.exist = true;
-        this.linkShare = 'https://el-indice.com/#/posts/' + post.id;
+        this.linkShare = 'http://colegioelperegrino.com/#/posts/' + post.id;
         this.imageShare = post.imagen
       },
       error: () => {

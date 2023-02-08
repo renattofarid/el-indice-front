@@ -70,17 +70,17 @@ export class AgregarAnuncioComponent implements OnInit {
   obtenerAnuncioExistente(id: number) {
     return this.adminService.getAnuncio(id).pipe(
       tap(anuncio => {
-        this.anuncioForm.setValue({
-          name: anuncio.name,
-          image: anuncio.image,
-          categoria_anuncios_id: anuncio.categoria_anuncio.id,
-          description: anuncio.description,
-          address: anuncio.address,
-          phone: anuncio.phone,
-          cellphone: anuncio.cellphone,
-          status: anuncio.status,
-          tags: anuncio.tags.map((a) => a.id),
-        });
+          this.anuncioForm.setValue({
+            name: anuncio.name,
+            image: anuncio.image,
+            categoria_anuncios_id: (!anuncio.categoria_anuncio) ? this.catAnun[0].id : anuncio.categoria_anuncio.id,
+            description: anuncio.description,
+            address: anuncio.address,
+            phone: anuncio.phone,
+            cellphone: anuncio.cellphone,
+            status: anuncio.status,
+            tags: anuncio.tags.map((a) => a.id),
+          });
         this._idAnuncio = anuncio.id
         this.isExist = true
       }),

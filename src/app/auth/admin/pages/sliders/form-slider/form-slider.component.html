@@ -1,0 +1,52 @@
+<form [formGroup]="formSlider" (ngSubmit)="save()">
+    <h2 mat-dialog-title>{{ (!slider.data) ? 'Crear' : 'Editar' }} Slider</h2>
+    <mat-dialog-content class="mat-typography">
+  
+      <div class="col-xxl-12 pb-2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Título </mat-label>
+          <input type="text" matInput formControlName="title" autocomplete="off">
+          <mat-error *ngIf="formSlider.controls.title.hasError('required')">
+            Título es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="col-xxl-12 pb-2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Descripción </mat-label>
+          <input type="email" matInput formControlName="description" autocomplete="off">
+          <mat-error *ngIf="formSlider.controls.description.hasError('required')">
+            Descripción es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="col-xxl-12 pb-2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Url de Imagen </mat-label>
+          <input class="example-full-width" type="text" matInput formControlName="imagen"
+            autocomplete="off">
+          <mat-error *ngIf="formSlider.controls.imagen.hasError('required')"> Password es <strong>requerido</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="col-xxl-12 pb-2">
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Categoría</mat-label>
+            <mat-select formControlName="categoria_id">
+              <mat-option *ngFor="let cat of categoriesList" [value]="cat.id" >
+                <!-- (click)="cambiar(cat.id)" -->
+                {{cat.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button color="warn" type="button" (click)="close()">Cancel</button>
+      <button mat-button color="primary" type="submit" cdkFocusInitial>{{ (!slider.data) ? 'Crear' :
+        'Editar' }}</button>
+    </mat-dialog-actions>
+  </form>

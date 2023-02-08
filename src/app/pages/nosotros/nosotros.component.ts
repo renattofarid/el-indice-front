@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ScriptService } from 'src/app/auth/admin/pages/images/script.service';
+import { Image } from '../interfaces/image';
+import { ImagesService } from '../services/images.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-nosotros',
@@ -7,10 +11,16 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class NosotrosComponent implements OnInit {
-
-  constructor() { }
+  images!: Image[];
+  folders: string[] = [];
+  mapAllRepition = new Map();
+  constructor(
+    private ss: ScriptService,
+    private imagesService: ImagesService
+  ) { }
 
   ngOnInit(): void {
+    this.ss.loadScriptsWeb();
   }
 
 }

@@ -11,18 +11,29 @@ import { SinglePostComponent } from './single-post/single-post.component';
 import { DisqusModule } from 'ngx-disqus';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-
+import { ContactoComponent } from './contacto/contacto.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { SingleCategoriaComponent } from './single-categoria/single-categoria.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InfraestructuraComponent } from './infraestructura/infraestructura.component';
+import { FolderComponent } from './folder/folder.component';
 @NgModule({
   declarations: [
     HomeComponent,
     NosotrosComponent,
     SliderComponent,
     PagesComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    ContactoComponent,
+    CategoriasComponent,
+    SingleCategoriaComponent,
+    InfraestructuraComponent,
+    FolderComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
+    ReactiveFormsModule,
     SharedModule,
     DisqusModule.forRoot('ngx'),
     ShareButtonsModule,

@@ -1,5 +1,4 @@
-const funcionalidad = () => {
-  (function ($) {
+(function ($) {
     "use strict";
   
     /*------------------------------------
@@ -50,16 +49,16 @@ const funcionalidad = () => {
     /*-------------------------------------
     //  Mobile Menu Toggle
     -------------------------------------*/
-    $(".sidebarBtn").on("click", function (e) {
-      e.preventDefault();
-      if ($(".rt-slide-nav").is(":visible")) {
-        $(".rt-slide-nav").slideUp();
-        $("body").removeClass("slidemenuon");
-      } else {
-        $(".rt-slide-nav").slideDown();
-        $("body").addClass("slidemenuon");
-      }
-    });
+    // $(".sidebarBtn").on("click", function (e) {
+    //   e.preventDefault();
+    //   if ($(".rt-slide-nav").is(":visible")) {
+    //     $(".rt-slide-nav").slideUp();
+    //     $("body").removeClass("slidemenuon");
+    //   } else {
+    //     $(".rt-slide-nav").slideDown();
+    //     $("body").addClass("slidemenuon");
+    //   }
+    // });
   
     /*-------------------------------------
       Mobile Menu Dropdown
@@ -92,412 +91,417 @@ const funcionalidad = () => {
     /*-------------------------------------
     // Trending slider
     ------------------------------------*/
-    const rtTrendingSlider1 = new Swiper(".rt-treding-slider1", {
-      slidesPerView: 1,
-      loop: true,
-      slideToClickedSlide: true,
-      direction: "vertical",
-      autoplay: {
-        delay: 4000,
-      },
-      speed: 800,
-    });
+    // const rtTrendingSlider1 = new Swiper(".rt-treding-slider1", {
+    //   slidesPerView: 1,
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   direction: "vertical",
+    //   autoplay: {
+    //     delay: 4000,
+    //   },
+    //   speed: 800,
+    // });
   
     /*-------------------------------------
     // banner-slider-thumbnail-style-2
     ------------------------------------*/
   
-    const bannerSliderThumbnailStyle2 = new Swiper(
-      ".banner-slider-thumbnail-style-2",
-      {
-        slidesPerView: 3,
-        slideToClickedSlide: true,
-        spaceBetween: 20,
+    
+    setTimeout(() => {
+      const bannerSliderThumbnailStyle2 = new Swiper(
+        ".banner-slider-thumbnail-style-2",
+        {
+          slidesPerView: 3,
+          slideToClickedSlide: true,
+          spaceBetween: 20,
+          loop: true,
+          speed: 1000,
+          direction: "horizontal",
+          mousewheel: true,
+    
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+            },
+            576: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            992: {
+              slidesPerView: 2,
+              direction: "vertical",
+              pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+              },
+              // centeredSlides: true,
+            },
+            1200: {
+              slidesPerView: 3,
+              direction: "vertical",
+              pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+              },
+            },
+          },
+        }
+      );
+      const bannerSliderStyle2 = new Swiper(".banner-slider-style-2", {
         loop: true,
         speed: 1000,
-        direction: "horizontal",
-        mousewheel: true,
-  
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-          },
-          576: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          992: {
-            slidesPerView: 2,
-            direction: "vertical",
-            pagination: {
-              el: ".swiper-pagination",
-              type: "progressbar",
-            },
-            // centeredSlides: true,
-          },
-          1200: {
-            slidesPerView: 3,
-            direction: "vertical",
-            pagination: {
-              el: ".swiper-pagination",
-              type: "progressbar",
-            },
-          },
+        thumbs: {
+          swiper: bannerSliderThumbnailStyle2,
         },
-      }
-    );
-    const bannerSliderStyle2 = new Swiper(".banner-slider-style-2", {
-      loop: true,
-      speed: 1000,
-      thumbs: {
-        swiper: bannerSliderThumbnailStyle2,
-      },
-    });
+      });
+    }, 1000);
   
     /*-------------------------------------
     // banner-slider-thumbnail-style-2
     ------------------------------------*/
   
-    var bannerSliderThumbnailStyle3 = new Swiper(
-      ".banner-slider-thumbnail-style-3",
-      {
-        slidesPerView: 3,
-        spaceBetween: 20,
-        loop: true,
-        speed: 1000,
+    // var bannerSliderThumbnailStyle3 = new Swiper(
+    //   ".banner-slider-thumbnail-style-3",
+    //   {
+    //     slidesPerView: 3,
+    //     spaceBetween: 20,
+    //     loop: true,
+    //     speed: 1000,
   
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-          },
-          576: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1025: {
-            slidesPerView: 2,
-          },
-          1400: {
-            slidesPerView: 3,
-            centeredSlides: true,
-          },
-        },
-      }
-    );
-    var bannerSliderStyle3 = new Swiper(".banner-slider-style-3", {
-      loop: true,
-      speed: 1000,
-      thumbs: {
-        swiper: bannerSliderThumbnailStyle3,
-      },
-      navigation: {
-        nextEl: ".btn-next-thumb",
-        prevEl: ".btn-prev-thumb",
-      },
-      effect: 'fade',
-      autoplay: {
-        delay: 6000
-      }
-    });
+    //     breakpoints: {
+    //       0: {
+    //         slidesPerView: 1,
+    //       },
+    //       576: {
+    //         slidesPerView: 1,
+    //       },
+    //       768: {
+    //         slidesPerView: 2,
+    //       },
+    //       1025: {
+    //         slidesPerView: 2,
+    //       },
+    //       1400: {
+    //         slidesPerView: 3,
+    //         centeredSlides: true,
+    //       },
+    //     },
+    //   }
+    // );
+    // var bannerSliderStyle3 = new Swiper(".banner-slider-style-3", {
+    //   loop: true,
+    //   speed: 1000,
+    //   thumbs: {
+    //     swiper: bannerSliderThumbnailStyle3,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next-thumb",
+    //     prevEl: ".btn-prev-thumb",
+    //   },
+    //   effect: 'fade',
+    //   autoplay: {
+    //     delay: 6000
+    //   }
+    // });
   
   
     /*-------------------------------------
     // video Thumbnail slider
     ------------------------------------*/
   
-    const videoSliderThumbnailStyle1 = new Swiper(
-      ".video-slider-thumbnail-style-1",
-      {
-        loop: true,
-        spaceBetween: 10,
-        slidesPerView: 4,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        speed: 800,
-        pagination: {
-          el: ".swiper-pagination",
-          type: "progressbar",
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-          },
-          576: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          992: {
-            slidesPerView: 2,
-          },
-          1200: {
-            slidesPerView: 3,
-          },
-          1400: {
-            slidesPerView: 4,
-          },
-        },
-      }
-    );
-    const videoSliderStyle1 = new Swiper(".video-slider-style-1", {
-      loop: true,
-      speed: 800,
-      thumbs: {
-        swiper: videoSliderThumbnailStyle1,
-      },
-    });
+    // const videoSliderThumbnailStyle1 = new Swiper(
+    //   ".video-slider-thumbnail-style-1",
+    //   {
+    //     loop: true,
+    //     spaceBetween: 10,
+    //     slidesPerView: 4,
+    //     watchSlidesVisibility: true,
+    //     watchSlidesProgress: true,
+    //     speed: 800,
+    //     pagination: {
+    //       el: ".swiper-pagination",
+    //       type: "progressbar",
+    //     },
+    //     breakpoints: {
+    //       0: {
+    //         slidesPerView: 1,
+    //       },
+    //       576: {
+    //         slidesPerView: 1,
+    //       },
+    //       768: {
+    //         slidesPerView: 2,
+    //       },
+    //       992: {
+    //         slidesPerView: 2,
+    //       },
+    //       1200: {
+    //         slidesPerView: 3,
+    //       },
+    //       1400: {
+    //         slidesPerView: 4,
+    //       },
+    //     },
+    //   }
+    // );
+    // const videoSliderStyle1 = new Swiper(".video-slider-style-1", {
+    //   loop: true,
+    //   speed: 800,
+    //   thumbs: {
+    //     swiper: videoSliderThumbnailStyle1,
+    //   },
+    // });
   
     /*---------------------------------------
     //	rt-post-slider-style-1
     ---------------------------------------*/
-    const rtPostSliderStyle1 = new Swiper(".rt-post-slider-style-1", {
-      slidesPerView: 4,
-      loop: true,
-      spaceBetween: 24,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 5000,
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-        1200: {
-          slidesPerView: 4,
-        },
-      },
-    });
+    // const rtPostSliderStyle1 = new Swiper(".rt-post-slider-style-1", {
+    //   slidesPerView: 4,
+    //   loop: true,
+    //   spaceBetween: 24,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 5000,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next",
+    //     prevEl: ".btn-prev",
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //     },
+    //     576: {
+    //       slidesPerView: 2,
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //     },
+    //     992: {
+    //       slidesPerView: 3,
+    //     },
+    //     1200: {
+    //       slidesPerView: 4,
+    //     },
+    //   },
+    // });
   
     /*--------------------------------------
     //rt-post-slider-style-2
    -----------------------------------------*/
-    const rtPostSliderStyle2 = new Swiper(".rt-post-slider-style-2", {
-      slidesPerView: 3,
-      spaceBetween: 24,
-      slidesPerColumn: 3,
-      slidesPerColumnFill: "row",
-      loop: true,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 4000,
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          slidesPerColumn: 2,
-          slidesPerColumnFill: "row",
-        },
-        576: {
-          slidesPerView: 1,
-          slidesPerColumn: 2,
-          slidesPerColumnFill: "row",
-        },
-        768: {
-          slidesPerView: 2,
-          slidesPerColumn: 2,
-          slidesPerColumnFill: "row",
-        },
-        992: {
-          slidesPerView: 2,
-          slidesPerColumn: 2,
-          slidesPerColumnFill: "row",
-        },
-        1200: {
-          slidesPerView: 3,
-          slidesPerColumn: 3,
-          slidesPerColumnFill: "row",
-        },
-      },
-    });
+    // const rtPostSliderStyle2 = new Swiper(".rt-post-slider-style-2", {
+    //   slidesPerView: 3,
+    //   spaceBetween: 24,
+    //   slidesPerColumn: 3,
+    //   slidesPerColumnFill: "row",
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 4000,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next",
+    //     prevEl: ".btn-prev",
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //       slidesPerColumn: 2,
+    //       slidesPerColumnFill: "row",
+    //     },
+    //     576: {
+    //       slidesPerView: 1,
+    //       slidesPerColumn: 2,
+    //       slidesPerColumnFill: "row",
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //       slidesPerColumn: 2,
+    //       slidesPerColumnFill: "row",
+    //     },
+    //     992: {
+    //       slidesPerView: 2,
+    //       slidesPerColumn: 2,
+    //       slidesPerColumnFill: "row",
+    //     },
+    //     1200: {
+    //       slidesPerView: 3,
+    //       slidesPerColumn: 3,
+    //       slidesPerColumnFill: "row",
+    //     },
+    //   },
+    // });
   
     /*---------------------------------------
     // rt-post-slider-style-3
     ----------------------------------------*/
-    const rtPostSliderStyle3 = new Swiper(".rt-post-slider-style-3", {
-      slidesPerView: 4,
-      spaceBetween: 24,
-      loop: true,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 4000,
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-        1200: {
-          slidesPerView: 4,
-        },
-      },
-    });
+    // const rtPostSliderStyle3 = new Swiper(".rt-post-slider-style-3", {
+    //   slidesPerView: 4,
+    //   spaceBetween: 24,
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 4000,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next",
+    //     prevEl: ".btn-prev",
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //     },
+    //     576: {
+    //       slidesPerView: 1,
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //     },
+    //     992: {
+    //       slidesPerView: 3,
+    //     },
+    //     1200: {
+    //       slidesPerView: 4,
+    //     },
+    //   },
+    // });
   
     /*---------------------------------------
     // rt-post-slider-style-4
     ----------------------------------------*/
-    const rtPostSliderStyle4 = new Swiper(".rt-post-slider-style-4", {
-      slidesPerView: 5,
-      spaceBetween: 24,
-      loop: true,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 4000,
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-        1200: {
-          slidesPerView: 4,
-        },
-        1600: {
-          slidesPerView: 5,
-        },
-      },
-    });
+    // const rtPostSliderStyle4 = new Swiper(".rt-post-slider-style-4", {
+    //   slidesPerView: 5,
+    //   spaceBetween: 24,
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 4000,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next",
+    //     prevEl: ".btn-prev",
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //     },
+    //     576: {
+    //       slidesPerView: 2,
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //     },
+    //     992: {
+    //       slidesPerView: 3,
+    //     },
+    //     1200: {
+    //       slidesPerView: 4,
+    //     },
+    //     1600: {
+    //       slidesPerView: 5,
+    //     },
+    //   },
+    // });
   
     /*---------------------------------------
     // rt-post-slider-style-5
     ----------------------------------------*/
-    const rtPostSliderStyle5 = new Swiper(".rt-post-slider-style-5", {
-      slidesPerView: 3,
-      spaceBetween: 24,
-      loop: true,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 4000,
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-      },
-    });
+    // const rtPostSliderStyle5 = new Swiper(".rt-post-slider-style-5", {
+    //   slidesPerView: 3,
+    //   spaceBetween: 24,
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 4000,
+    //   },
+    //   navigation: {
+    //     nextEl: ".btn-next",
+    //     prevEl: ".btn-prev",
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //     },
+    //     576: {
+    //       slidesPerView: 2,
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //     },
+    //     992: {
+    //       slidesPerView: 3,
+    //     },
+    //   },
+    // });
   
     /*---------------------------------------
     // rt-post-slider-style-6
     -----------------------------------------*/
-    const rtPostSliderStyle6 = new Swiper(".rt-post-slider-style-6", {
-      slidesPerView: 4,
-      loop: true,
-      spaceBetween: 0,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 5000,
-      },
-      speed: 800,
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-        },
-        576: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        992: {
-          slidesPerView: 3,
-        },
-        1200: {
-          slidesPerView: 3,
-        },
-        1400: {
-          slidesPerView: 3,
-        },
-        1600: {
-          slidesPerView: 4,
-        },
-      },
-    });
+    // const rtPostSliderStyle6 = new Swiper(".rt-post-slider-style-6", {
+    //   slidesPerView: 4,
+    //   loop: true,
+    //   spaceBetween: 0,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 5000,
+    //   },
+    //   speed: 800,
+    //   breakpoints: {
+    //     0: {
+    //       slidesPerView: 1,
+    //     },
+    //     576: {
+    //       slidesPerView: 1,
+    //     },
+    //     768: {
+    //       slidesPerView: 2,
+    //     },
+    //     992: {
+    //       slidesPerView: 3,
+    //     },
+    //     1200: {
+    //       slidesPerView: 3,
+    //     },
+    //     1400: {
+    //       slidesPerView: 3,
+    //     },
+    //     1600: {
+    //       slidesPerView: 4,
+    //     },
+    //   },
+    // });
   
     /*--------------------------------------
     //	rt-post-slider-style-7
     --------------------------------------*/
-    const rtPostSliderStyle7 = new Swiper(".rt-post-slider-style-7", {
-      slidesPerView: 1,
-      loop: true,
-      slideToClickedSlide: true,
-      autoplay: {
-        delay: 5000,
-      },
-      speed: 800,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
+    // const rtPostSliderStyle7 = new Swiper(".rt-post-slider-style-7", {
+    //   slidesPerView: 1,
+    //   loop: true,
+    //   slideToClickedSlide: true,
+    //   autoplay: {
+    //     delay: 5000,
+    //   },
+    //   speed: 800,
+    //   pagination: {
+    //     el: ".swiper-pagination",
+    //     clickable: true,
+    //   },
+    // });
   
     /*-----------------------------------
     // counter up
     ----------------------------------*/
     let counter = true;
-    $(".counter-appear").appear();
+    setTimeout(() => {
+      $(".counter-appear").appear();
+    }, 1500);
     $(".counter-appear").on("appear", function () {
       if (counter) {
         // with skill bar
@@ -525,59 +529,59 @@ const funcionalidad = () => {
     /*-------------------------------------
     //Contact Form initiating
     -------------------------------------*/
-    const contactForm = $(".rt-contact-form");
-    if (contactForm.length) {
-      contactForm.each(function () {
-        const innerContactForm = $(this);
-        innerContactForm.validator().on("submit", function (e) {
-          const $this = $(this),
-            $target = innerContactForm.find(".form-response");
-          if (e.isDefaultPrevented()) {
-            $target.html(
-              "<div class='alert alert-danger'><p>Please select all required field.</p></div>"
-            );
-          } else {
-            $.ajax({
-              url: "php/mailer.php",
-              type: "POST",
-              data: innerContactForm.serialize(),
-              beforeSend: function () {
-                $target.html(
-                  "<div class='alert alert-info'><p>Loading ...</p></div>"
-                );
-              },
-              success: function (response) {
-                if (response === "success") {
-                  $this[0].reset();
-                  $target.html(
-                    "<div class='alert alert-success'><p>Message has been sent successfully.</p></div>"
-                  );
-                } else {
-                  res = JSON.parse(response);
-                  if (res.message.length) {
-                    const messages = null;
-                    res.message.forEach(function (message) {
-                      messages += "<p>" + message + "</p>";
-                    });
-                    $target.html(
-                      "<div class='alert alert-success'><p>" +
-                      messages +
-                      "</p></div>"
-                    );
-                  }
-                }
-              },
-              error: function () {
-                $target.html(
-                  "<div class='alert alert-success'><p>Error !!!</p></div>"
-                );
-              },
-            });
-            return false;
-          }
-        });
-      });
-    }
+    // const contactForm = $(".rt-contact-form");
+    // if (contactForm.length) {
+    //   contactForm.each(function () {
+    //     const innerContactForm = $(this);
+    //     innerContactForm.validator().on("submit", function (e) {
+    //       const $this = $(this),
+    //         $target = innerContactForm.find(".form-response");
+    //       if (e.isDefaultPrevented()) {
+    //         $target.html(
+    //           "<div class='alert alert-danger'><p>Please select all required field.</p></div>"
+    //         );
+    //       } else {
+    //         $.ajax({
+    //           url: "php/mailer.php",
+    //           type: "POST",
+    //           data: innerContactForm.serialize(),
+    //           beforeSend: function () {
+    //             $target.html(
+    //               "<div class='alert alert-info'><p>Loading ...</p></div>"
+    //             );
+    //           },
+    //           success: function (response) {
+    //             if (response === "success") {
+    //               $this[0].reset();
+    //               $target.html(
+    //                 "<div class='alert alert-success'><p>Message has been sent successfully.</p></div>"
+    //               );
+    //             } else {
+    //               res = JSON.parse(response);
+    //               if (res.message.length) {
+    //                 const messages = null;
+    //                 res.message.forEach(function (message) {
+    //                   messages += "<p>" + message + "</p>";
+    //                 });
+    //                 $target.html(
+    //                   "<div class='alert alert-success'><p>" +
+    //                   messages +
+    //                   "</p></div>"
+    //                 );
+    //               }
+    //             }
+    //           },
+    //           error: function () {
+    //             $target.html(
+    //               "<div class='alert alert-success'><p>Error !!!</p></div>"
+    //             );
+    //           },
+    //         });
+    //         return false;
+    //       }
+    //     });
+    //   });
+    // }
   
     /*-------------------------------------
        Input Quantity Up & Down activation code
@@ -795,20 +799,21 @@ const funcionalidad = () => {
     /*-------------------------------
      //  WOW
     -------------------------------*/
-    const wow = new WOW({
-      boxClass: "wow",
-      animateClass: "animated",
-      offset: 0,
-      mobile: false,
-      live: true,
-      scrollContainer: null,
-    });
-    wow.init();
+    // const wow = new WOW({
+    //   boxClass: "wow",
+    //   animateClass: "animated",
+    //   offset: 0,
+    //   mobile: false,
+    //   live: true,
+    //   scrollContainer: null,
+    // });
+    // wow.init();
   
     /*-------------------------------
      //  Back to Top
     -------------------------------*/
     const backToTop = document.getElementById("back-to-top");
+    const backToTopWspp = document.getElementById("back-to-top-wspp");
     window.onscroll = function () {
       scrollFunction();
     };
@@ -819,8 +824,10 @@ const funcionalidad = () => {
           document.documentElement.scrollTop > 80
         ) {
           backToTop.style.display = "block";
+          backToTopWspp.style.display = "block";
         } else {
           backToTop.style.display = "none";
+          backToTopWspp.style.display = "none";
         }
       }
     }
@@ -829,6 +836,9 @@ const funcionalidad = () => {
         e.preventDefault();
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      });
+      backToTopWspp.addEventListener("click", (e) => {
+       window.open('https://api.whatsapp.com/send?phone=51948893050&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n','blank')
       });
     }
   
@@ -918,7 +928,7 @@ const funcionalidad = () => {
   
     const currentDate = document.querySelectorAll(".currentDate");
     if (currentDate.length > 0) {
-      const date = new Date().toLocaleDateString("es-mx", {
+      const date = new Date().toLocaleDateString("en-us", {
         weekday: "long",
         year: "numeric",
         month: "short",
@@ -930,6 +940,4 @@ const funcionalidad = () => {
     }
   
   })(jQuery);
-}
-
-funcionalidad();
+  

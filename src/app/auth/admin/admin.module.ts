@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AdminRoutingModule } from './admin-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AdminComponent } from './admin.component';
 import { AsideComponent } from './shared/aside/aside.component';
@@ -28,12 +30,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { AnunciosComponent } from './pages/anuncios/anuncios.component';
 import { TagsComponent } from './pages/tags/tags.component';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
+import { ImagesComponent } from './pages/images/images.component';
+import { FormImageComponent } from './pages/images/form-image/form-image.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
+import { SlidersComponent } from './pages/sliders/sliders.component';
+import { FormSliderComponent } from './pages/sliders/form-slider/form-slider.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +63,13 @@ import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } fro
     CategoriasAnunciosComponent,
     AgregarAnuncioComponent,
     AgregarCategoriaAnuncioComponent,
-    AgregarCategoriaPostComponent
+    AgregarCategoriaPostComponent,
+    ImagesComponent,
+    FormImageComponent,
+    ContactsComponent,
+    InscriptionsComponent,
+    SlidersComponent,
+    FormSliderComponent,
   ],
   imports: [
     CommonModule,
@@ -58,7 +77,7 @@ import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } fro
     RouterModule,
     ReactiveFormsModule,
     NgxChartsModule,
-
+    HttpClientModule,
     //Material
     NgxMatColorPickerModule,
     MatButtonModule,
@@ -71,7 +90,12 @@ import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } fro
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatChipsModule
+
   ],
   providers: [
     { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }

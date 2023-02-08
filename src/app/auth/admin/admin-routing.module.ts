@@ -8,6 +8,10 @@ import { TagsComponent } from './pages/tags/tags.component';
 import { CategoriasPostsComponent } from './pages/categorias-posts/categorias-posts.component';
 import { CategoriasAnunciosComponent } from './pages/categorias-anuncios/categorias-anuncios.component';
 import { AgregarAnuncioComponent } from './pages/agregar-anuncio/agregar-anuncio.component';
+import { ImagesComponent } from './pages/images/images.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
+import { SlidersComponent } from './pages/sliders/sliders.component';
 
 const routes: Routes = [
   {
@@ -53,6 +57,22 @@ const routes: Routes = [
       {
         path: 'anuncios/editar/:id',
         component: AgregarAnuncioComponent,
+      },
+      {
+        path: 'imagenes',
+        component: ImagesComponent,
+      },
+      {
+        path: 'mensajes-contacto',
+        component: ContactsComponent,
+      },
+      {
+        path: 'sliders',
+        component: SlidersComponent,
+      },
+      {
+        path: 'pre-inscripcion',
+        component: InscriptionsComponent,
       },
       {
         path: '**',

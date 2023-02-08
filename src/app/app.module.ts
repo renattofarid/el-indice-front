@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localeESPE from '@angular/common/locales/es-PE';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeESPE, "es-PE")
 @NgModule({
@@ -21,17 +22,10 @@ registerLocaleData(localeESPE, "es-PE")
     RouterModule,
     SharedModule,
     HttpClientModule,
-    BrowserAnimationsModule
-    // FormsModule,
-    // ReactiveFormsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: InterceptorService,
-  //     multi: true
-  //   }
-  // ]
 })
 export class AppModule { }

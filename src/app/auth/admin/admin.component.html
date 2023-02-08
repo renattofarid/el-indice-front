@@ -1,12 +1,91 @@
-<app-header></app-header>
+<mat-drawer-container class="example-container"hasBackdrop="false">
+  <mat-drawer #drawer mode="push" >
+    <!-- <app-aside></app-aside> -->
+    <!-- ======= Sidebar ======= -->
+    <aside class="m-3">
 
-<app-aside></app-aside>
-<main id="main" class="main">
+      <ul class="sidebar-nav" id="sidebar-nav">
 
-  <section class="section">
+        <li class="nav-heading d-flex justify-content-center">Módulos</li>
 
-    <router-outlet></router-outlet>
+        <!-- <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/dashboard']" routerLinkActive="collapsed" [routerLinkActiveOptions]="{exact:
+        true}">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/sliders']" routerLinkActive="collapsed">
+            <i class="fab fa-slideshare"></i>
+            <span>Sliders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/posts']" routerLinkActive="collapsed">
+            <i class="fas fa-book"></i>
+            <span>Posts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/anuncios']" routerLinkActive="collapsed">
+            <i class="fas fa-paper-plane"></i>
+            <span>Anuncios</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/cat-posts']" routerLinkActive="collapsed">
+            <i class="fas fa-tasks"></i>
 
-  </section>
+            <span>C. Posts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/cat-anuncios']" routerLinkActive="collapsed">
+            <i class="fas fa-tasks"></i>
+            <span>C. Anuncios</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/tags']" routerLinkActive="collapsed">
+            <i class="fas fa-tags"></i>
+            <span>Tags</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/imagenes']" routerLinkActive="collapsed">
+            <i class="fas fa-image"></i>
+            <span>Imágenes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/mensajes-contacto']" routerLinkActive="collapsed">
+            <i class="fas fa-id-badge"></i>
+            <span>Mensajes de Contacto</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/pre-inscripcion']" routerLinkActive="collapsed">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Pre-Inscripción</span>
+          </a>
+        </li>
 
-</main><!-- End #main -->
+      </ul>
+
+    </aside><!-- End Sidebar-->
+
+  </mat-drawer>
+  <mat-drawer-content style="height: 100vh !important; ">
+    <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+    <router-outlet ></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>

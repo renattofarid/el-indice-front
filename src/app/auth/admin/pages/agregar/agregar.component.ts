@@ -54,7 +54,13 @@ export class AgregarComponent implements OnInit {
     )
       .subscribe({
         next: postExist => {
-          this.cat = this.categoriesList.find(e => e.id === postExist.categoria.id);
+          console.log( this.categoriesList);
+          
+          if (!postExist.categoria) {
+            this.cat = this.categoriesList[0].id;
+          } else {
+            this.cat = this.categoriesList.find(e => e.id === postExist.categoria.id);
+          }
           this.postExistente = postExist;
           this.isExist = true;
           const anunExist = this.postExistente.anuncios.map((a) => a.id)
@@ -63,7 +69,7 @@ export class AgregarComponent implements OnInit {
             title: this.postExistente.title,
             description: this.postExistente.description,
             content: this.postExistente.content,
-            categoria_id: this.postExistente.categoria.id,
+            categoria_id: (!this.postExistente.categoria) ? this.categoriesList[0].id : this.postExistente.categoria,
             published: this.postExistente.published,
             imagen: this.postExistente.imagen,
             tags: tagExist,

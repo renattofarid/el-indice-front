@@ -1,0 +1,86 @@
+<!-- Start inner page Banner -->
+<div class="banner inner-banner">
+    <div class="container">
+       <nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item">
+                <a routerLink="/">
+                   <i class="fas fa-home"></i>
+                   Home
+                </a>
+             </li>
+             <li class="breadcrumb-item active" aria-current="page">
+                Escoge una Categoría
+             </li>
+          </ol>
+       </nav>
+    </div>
+ </div>
+ <!-- End inner page Banner -->
+
+ <!-- start rt-sidebar-section-layout-1 -->
+ <section class="rt-sidebar-section-layout-1" *ngIf="categorias">
+    <div class="container">
+       <div class="row gutter-40 sticky-coloum-wrap">
+          <div class="col-xl-12 sticky-coloum-item">
+             <div class="rt-left-sidebar-sapcer-5">
+
+                <div class="row gutter-24">
+
+                    <div 
+                        *ngFor="let cat of categorias"
+                        class="col-md-4 animate__animated animate__fadeInUp" 
+                        data-wow-delay="200ms" 
+                        data-wow-duration="800ms">
+                        <div class="rt-post-grid post-grid-style-2 grid-meta ">
+                           <div class="post-img">
+                              <a [routerLink]="'/noticias/'+cat.id">
+                                 <img [src]="cat.image" alt="post" width="551" height="431">
+                              </a>
+                           </div>
+                           <div class="post-content">
+                              <!-- <a [routerLink]="'/noticias/'+cat.id" class="rt-post-cat-normal">{{cat.name}}</a> -->
+                              <h3 class="post-title bold-underline">
+                                 <a [routerLink]="'/noticias/'+cat.id">
+                                    {{cat.name}}
+                                 </a>
+                              </h3>
+                              <!-- <div class="post-meta">
+                                 <ul>
+                                    <li>
+                                       <span class="rt-meta">
+                                          by <a href="author.html" class="name">Willum Skeem</a>
+                                       </span>
+                                    </li>
+                                    <li>
+                                       <span class="rt-meta">
+                                          <i class="far fa-calendar-alt icon"></i>
+                                          DECEMBER 9, 2022
+                                       </span>
+                                    </li>
+                                 </ul>
+                              </div> -->
+                           </div>
+                        </div>
+                     </div>
+                     <!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+             </div>
+             <!-- end rt-left-sidebar-sapcer-5 -->
+          </div>
+          <!-- end col-->
+
+          <div class="col-xl-3 col-lg-8 mx-auto sticky-coloum-item">
+             
+          </div>
+          <!-- end col -->
+
+       </div>
+       <!-- end row  -->
+    </div>
+    <!-- end container -->
+ </section>
+ <!-- end rt-sidebar-section-layout-1 -->

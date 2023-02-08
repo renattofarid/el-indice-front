@@ -10,53 +10,23 @@
       <div class="row align-items-center">
 
         <div class="col-lg-7">
-          <div class="rt-trending rt-trending-style-1">
-            <p class="trending-title">
-              <i class="fas fa-bolt icon"></i>
-              Trending
-            </p>
-            <div class="rt-treding-slider1 swiper-container">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="item">
-                    <p class="trending-slide-title">
-                      {{slides[0].title.toString()}}
-                    </p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <p class="trending-slide-title">
-                      {{slides[1].title.toString()}}
-                    </p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <p class="trending-slide-title">
-                      {{slides[2].title.toString()}}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="meta-wrap">
+            <span class="rt-meta">
+              <i class="far fa-calendar-alt icon"></i>
+              <span class="currentDate p-2">
+                DECEMBER 9, 2022
+              </span>
+            </span>
           </div>
         </div>
         <!-- end col -->
 
         <div class="col-lg-5">
           <div class="rt-topbar-right">
-            <div class="meta-wrap">
-              <span class="rt-meta">
-                <i class="far fa-calendar-alt icon"></i>
-                <span class="currentDate">
-                  DECEMBER 9, 2022
-                </span>
-              </span>
-            </div>
+            
             <div class="social-wrap d-none d-xl-block">
               <ul class="rt-top-social">
-                <li class="follow">Follow Us:</li>
+                <li class="follow">Síguenos:</li>
                 <li>
                   <a href="https://www.facebook.com/" target="_blank">
                     <i class="fab fa-facebook-f"></i>
@@ -67,18 +37,18 @@
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="https://www.linkedin.com/" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                   </a>
-                </li>
-                <li><a href="https://www.pinterest.com/" target="_blank">
+                </li> -->
+                <!-- <li><a href="https://www.pinterest.com/" target="_blank">
                     <i class="fab fa-pinterest-p"></i>
                   </a>
-                </li>
+                </li> -->
                 <li>
-                  <a href="https://www.whatsapp.com/" target="_blank">
-                    <i class="fab fa-skype"></i>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="fab fa-instagram"></i>
                   </a>
                 </li>
               </ul>
@@ -99,20 +69,23 @@
   <div class="header-middlebar header-middlebar-style-8" id="middlebar-wrap">
     <div class="container">
       <div class="row">
-        <div class="d-flex align-items-center justify-content-between gap-4">
+        <div class="d-flex align-items-center justify-content-center gap-4">
 
           <!-- start logo here -->
           <div class="site-branding">
-            <a class="dark-logo" href="index.html"><img width="162" height="52"
-                src="./assets/web/media/logo/logo-dark.svg" alt="neeon"></a>
-            <a class="light-logo" href="index.html"><img width="162" height="52"
-                src="./assets/web/media/logo/el-indice.png" alt="neeon"></a>
+            <a class="dark-logo" routerLink="/"><img width="800" height="80"
+                src="https://res.cloudinary.com/ligthsoft/image/upload/v1669812670/peregrino/oyrronnopzrahvhyumrt.png" alt="el-peregrino"></a>
+                <!-- src="./assets/web/media/logo/black-peregrino.png" alt="el-peregrino"></a> -->
+            <a class="light-logo" routerLink="/"><img width="800" height="80"
+                src="https://res.cloudinary.com/ligthsoft/image/upload/v1669812670/peregrino/oyrronnopzrahvhyumrt.png" alt="el-peregrino"></a>
+                <!-- src="./assets/web/media/logo/white-peregrino.png" alt="el-peregrino"></a> -->
           </div>
           <!-- end logo here -->
 
           <div class="ad-banner-img">
-            <a href="#">
-              <img src="./assets/web/media/gallery/travel-ad_1.jpg" alt="travel-ad_1" width="850" height="90">
+            <a  style="pointer-events: none;">
+              <!-- <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/243219549_355461349709375_2987990243537883321_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeF2KP-dA-tphFXKhOj8CmVVSKzljcGh-BZIrOWNwaH4Fs6_u5ftvbe8MbEKNetrfymzkhoRP9Yg3A30A7arVm-Q&_nc_ohc=5yz9otIk4hIAX-HJ1Nq&tn=xK7XtIbp0vn8LQcd&_nc_ht=scontent-lim1-1.xx&oh=00_AT9e-6LoRC5fcJ5TeHFuj7uGnZ0SV3RrueEYAl_1kgLGkA&oe=635D6F48" alt="travel-ad_1" width="850" height="90"> -->
+              <!-- <img src="./assets/web/media/gallery/travel-ad_1.jpg" alt="travel-ad_1" width="850" height="90"> -->
             </a>
           </div>
           <!-- end ad-banner-img -->
@@ -127,14 +100,14 @@
   <div class="header-main header-main-style-8 navbar-wrap" id="navbar-wrap">
     <div class="container">
       <div class="row">
-        <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center justify-content-center">
 
           <!-- start header action -->
-          <div class="humburger-area">
+          <!-- <div class="humburger-area">
             <div class="item humburger offcanvas-menu-btn menu-status-open">
               <span></span>
             </div>
-          </div>
+          </div> -->
           <!-- end header action -->
 
           <!-- start main menu -->
@@ -146,26 +119,23 @@
                   <a class="animation" [routerLink]="['/']">Inicio</a>
                 </li>
                 <li class="main-menu" routerLinkActive="active">
+                  <a class="animation" [routerLink]="['/noticias']">Noticias</a>
+                </li>
+                <!-- <li class="main-menu__nav_sub list">
+                  <a class="animation" href="javascript:void(0)">Categorías</a>
+                  <ul class="main-menu__dropdown">
+                    
+                    <li><a >Categoría 1</a></li>
+                  </ul>
+                </li> -->
+                <li class="main-menu" routerLinkActive="active">
                   <a class="animation" [routerLink]="['/nosotros']">Nosotros</a>
                 </li>
                 <li class="main-menu" routerLinkActive="active">
-                  <a class="animation" [routerLink]="['/posts/30']">Single Post</a>
+                  <a class="animation" [routerLink]="['/contacto']">Contáctanos</a>
                 </li>
-                <li class="main-menu__nav_sub list">
-                  <a class="animation" href="javascript:void(0)">Categorías</a>
-                  <ul class="main-menu__dropdown">
-                    <li class="main-menu__nav_sub">
-                      <a href="javascript:void(0)">
-                        Post Layout
-                      </a>
-                      <ul>
-                        <li><a href="single-post1.html">Single Post 01</a></li>
-                        <li><a href="single-post2.html">Single Post 02</a></li>
-                        <li><a href="single-post3.html">Single Post 03</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="author.html">Author Deatils</a></li>
-                  </ul>
+                <li class="main-menu" routerLinkActive="active">
+                  <a class="animation" [routerLink]="['/infraestructura']">Infraestructura</a>
                 </li>
               </ul>
             </nav>
@@ -214,7 +184,7 @@
       <li>
         <span class="rt-meta">
           <i class="fas fa-map-marker-alt icon"></i>
-          Chicago 12, Melborne City, USA
+          Chiclayo, Lambayeque, Perú 🇵🇪
         </span>
       </li>
     </ul>
@@ -224,35 +194,21 @@
   <div class="mobile-menu-bar-wrap" id="mobile-menu-bar-wrap">
     <div class="mobile-menu-bar">
       <div class="logo">
-        <a href="index.html">
-          <img src="./assets/web/media/logo/logo-dark.svg" alt="neeon" width="162" height="52">
+        <a routerLink="/">
+          <img src="https://res.cloudinary.com/ligthsoft/image/upload/v1669812670/peregrino/oyrronnopzrahvhyumrt.png" alt="el-peregrino" width="350" height="72">
         </a>
       </div>
-      <span class="sidebarBtn">
+      <span class="sidebarBtn" #sidebarBtn>
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </span>
     </div>
-    <div class="rt-slide-nav">
+    <div class="rt-slide-nav" #rt_slide_nav>
       <div class="offscreen-navigation">
         <nav class="menu-main-primary-container">
           <ul class="menu">
-            <li class="list menu-item-has-children">
-              <a class="animation" href="javascript:void(0)">Home</a>
-              <ul class="main-menu__dropdown sub-menu">
-                <li><a href="index.html">Home 01 - Main</a></li>
-                <li><a href="index2.html">Home 02 - Technology</a></li>
-                <li><a href="index3.html">Home 03 - Gaming</a></li>
-                <li><a href="index4.html">Home 04 - Illustration</a></li>
-                <li><a href="index5.html">Home 05 - Newspaper</a></li>
-                <li><a href="index6.html">Home 06 - Magazine</a></li>
-                <li><a href="index7.html">Home 07 - Sports</a></li>
-                <li><a href="index8.html">Home 08 - Travels</a></li>
-                <li><a href="index9.html">Home 09 - Fitness</a></li>
-              </ul>
-            </li>
             <li class="list menu-item">
               <a href="" class="animation" [routerLink]="['/']" routerLinkActive="active-mobile"
                 [routerLinkActiveOptions]="{exact:
@@ -261,10 +217,29 @@
               </a>
             </li>
             <li class="list menu-item">
+              <a href="" class="animation" [routerLink]="['/noticias']" routerLinkActive="active-mobile">
+                Noticias
+              </a>
+            </li>
+            <li class="list menu-item">
               <a href="" class="animation" [routerLink]="['/nosotros']" routerLinkActive="active-mobile"
                 [routerLinkActiveOptions]="{exact:
                 true}">
                 Nosotros
+              </a>
+            </li>
+            <li class="list menu-item">
+              <a href="" class="animation" [routerLink]="['/contacto']" routerLinkActive="active-mobile"
+                [routerLinkActiveOptions]="{exact:
+                true}">
+                Contáctanos
+              </a>
+            </li>
+            <li class="list menu-item">
+              <a href="" class="animation" [routerLink]="['/infraestructura']" routerLinkActive="active-mobile"
+                [routerLinkActiveOptions]="{exact:
+                true}">
+                Infraestructura
               </a>
             </li>
           </ul>

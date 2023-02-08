@@ -6,6 +6,9 @@ import { PostResponse } from '../interfaces/posts';
 import { PostRequest, Post } from '../interfaces/post';
 import { Anuncio, AnuncioRequest } from '../interfaces/anuncio';
 import { Anuncios } from '../interfaces/anuncios';
+import { Contact } from '../interfaces/contact';
+import { PreInscription } from '../interfaces/pre-inscriptions';
+import { Slider } from '../interfaces/slider';
 
 
 @Injectable({
@@ -228,6 +231,63 @@ export class AdminService {
     const token = localStorage.getItem('token') || '';
 
     return this.http.delete(`${this._baseUrl}/api/anuncios/${id}`, {
+      headers: this._headers.append('Authorization', `Bearer ${token}`)
+    });
+  }
+
+  // MENSAJES DE CONTACTO!
+
+  contactMessages(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(`${this._baseUrl}/api/contact`, {
+      headers: this._headers
+    })
+  }
+
+  // MENSAJES DE PRE INSCRIPCION!
+
+  preInscriptions(): Observable<PreInscription[]> {
+    return this.http.get<PreInscription[]>(`${this._baseUrl}/api/inscription`, {
+      headers: this._headers
+    })
+  }
+
+  // SLIDERS
+  getAllSliders(): Observable<Slider[]> {
+    return this.http.get<Slider[]>(`${this._baseUrl}/api/sliders`, {
+      headers: this._headers
+    }).pipe(
+      map((resp: Slider[]) => resp['data'])
+    )
+  }
+
+  getSlider(id: number): Observable<Slider> {
+    const token = localStorage.getItem('token') || '';
+    return this.http.get<Slider>(`${this._baseUrl}/api/sliders/${id}`, {
+      headers: this._headers.append('Authorization', `Bearer ${token}`)
+    }).pipe(
+      map((resp: Slider) => resp['data'])
+    )
+  }
+
+  createSlider(formData: any) {
+    const token = localStorage.getItem('token') || '';
+    return this.http.post<Slider>(`${this._baseUrl}/api/sliders`, formData, {
+      headers: this._headers.append('Authorization', `Bearer ${token}`)
+    });
+
+  }
+
+  updateSlider(id: number, formData) {
+    const token = localStorage.getItem('token') || '';
+    return this.http.put<Slider>(`${this._baseUrl}/api/sliders/${id}`, formData, {
+      headers: this._headers.append('Authorization', `Bearer ${token}`)
+    });
+
+  }
+
+  deleteSlider(id: number) {
+    const token = localStorage.getItem('token') || '';
+    return this.http.delete(`${this._baseUrl}/api/sliders/${id}`, {
       headers: this._headers.append('Authorization', `Bearer ${token}`)
     });
   }

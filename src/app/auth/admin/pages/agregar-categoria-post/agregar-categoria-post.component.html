@@ -26,7 +26,3 @@
   <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
   <button mat-raised-button color="primary"  cdkFocusInitial (click)="guardar()" >{{(data.mode) ? 'Actualizar' : 'Guardar'}}</button>
 </div>
-
-<pre class="pt-4">
-    {{ formCategoria.value.color!['hex'] | json }}
-</pre>

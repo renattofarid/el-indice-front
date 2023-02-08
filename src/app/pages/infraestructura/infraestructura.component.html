@@ -1,0 +1,38 @@
+<section class="who-we-are-style-1 motion-effects-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6 mx-auto text-center">
+                <div class="rt-section-heading-style-2">
+                    <h2 class="heading-tilte">
+                        Escoge un Álbum
+                    </h2>
+                    <!-- <p>
+                     Nec nascetur mus vicideolor rhoncus augue quisque parturientet
+                     imperdet sit nisi tellus veni faucibus orcimperdietenatis.
+                  </p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row gutter-20" *ngIf="tempFoldersRepitions">
+            <div *ngFor="let f of tempFoldersRepitions" class="col-xl-4 col-md-6 animate__animated animate__fadeInUp"
+                data-wow-delay="200ms" data-wow-duration="800ms">
+                <div class="team-box-style-1" style="background-color: #ffffff;">
+                    <!-- <div class="team-img">
+                    </div> -->
+                    <div class="team-content">
+                        <h3 class="name">
+                            <a [routerLink]="'/infraestructura/'+f">{{f === '' ? 'Sin Folder' : f | titlecase}}</a>
+                        </h3>
+                        <!-- <span class="designation">Creative Director</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border text-danger" role="status" style="width: 5rem !important; height: 5rem !important;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</section>
