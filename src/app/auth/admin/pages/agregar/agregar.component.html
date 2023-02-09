@@ -40,15 +40,17 @@
             </mat-form-field>
           </div>
           <div class="col-md-4">
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3" *ngIf="categoryPostId !== null">
 
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label>Categoría</mat-label>
-                <mat-select formControlName="categoria_id">
-                  <mat-option *ngFor="let cat of categoriesList" [value]="cat.id" (click)="cambiar(cat.id)">
+                <select matNativeControl  formControlName="categoria_id">
+                  <option [value]="categoryPostId"
+                    *ngIf="categoryPostId !== null" selected>{{categoryPostName}}</option>
+                  <option *ngFor="let cat of categoriesList" [value]="cat.id" (click)="cambiar(cat.id)">
                     {{cat.name}}
-                  </mat-option>
-                </mat-select>
+                  </option>
+                </select>
               </mat-form-field>
 
             </div>
@@ -94,14 +96,15 @@
                 <div class="post-header">
                   <span class="rt-cat-primary" *ngIf="postForm.value.categoria_id" [ngStyle]="{
                     'background-color': '#'+cat['color']}">
-                    {{  cat['name']  }} 
+                    {{ cat['name'] }}
                   </span>
-                  <h2 class="title" *ngIf="postForm.value.title" contenteditable
-                    (keydown.control.s)="onContextChange($event.target,'title')">
-                    {{ postForm.value.title }}
-                  </h2>
+                  <h2 #titleInput class="title" *ngIf="postForm.value.title" contenteditable (keydown)="onChangeDebounce($event.target,'title')">
+                  {{ postForm.value.title }}
+                </h2>
+                <!-- [value]="postForm.value.title" -->
+                <!-- (keydown.f4)="onContextChange($event.target,'title')"  -->
                   <p *ngIf="postForm.value.description" contenteditable
-                    (keydown.control.s)="onContextChange($event.target,'description')"> {{ postForm.value.description }}
+                    (keydown)="onChangeDebounce($event.target,'description')"> {{ postForm.value.description }}
                   </p>
                 </div>
                 <figure class="post-img">
@@ -110,7 +113,7 @@
                 </figure>
               </div>
               <div class="post-body" *ngIf="postForm.value.content" [innerHTML]="postForm.value.content" contenteditable
-                (keydown.control.s)="onContextChange($event.target,'content')">
+                (keydown)="onChangeDebounce($event.target,'content')">
               </div>
             </div>
           </div>

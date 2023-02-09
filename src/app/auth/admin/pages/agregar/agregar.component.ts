@@ -13,14 +13,17 @@ import { switchMap } from 'rxjs';
 })
 export class AgregarComponent implements OnInit {
 
+  private debounceTimer !: NodeJS.Timeout
   tagList: any[] = [];
   servicesList: any[] = [];
   categoriesList: any[] = [];
+  categoryPostId :any = null;
+  categoryPostName :any;
   postTemp!: PostRequest;
   isExist: boolean = false;
   postExistente!: Post;
   toggleHtml: boolean = false;
-  cat: any[] = [];
+  cat: any;
   @ViewChild('txtContenido') txtContenido!: ElementRef<HTMLInputElement>
 
   public postForm = this.fb.group({
@@ -45,41 +48,52 @@ export class AgregarComponent implements OnInit {
   ngOnInit(): void {
     this.tags();
     this.anuncios();
-    this.categorias();
     if (!this.router.url.includes('editar')) {
       return
     }
-    this.activatedRoute.params.pipe(
-      switchMap(({ id }) => this.adminService.getPost(id))
-    )
-      .subscribe({
-        next: postExist => {
-          console.log( this.categoriesList);
-          
-          if (!postExist.categoria) {
-            this.cat = this.categoriesList[0].id;
-          } else {
-            this.cat = this.categoriesList.find(e => e.id === postExist.categoria.id);
-          }
-          this.postExistente = postExist;
-          this.isExist = true;
-          const anunExist = this.postExistente.anuncios.map((a) => a.id)
-          const tagExist = this.postExistente.tags.map((a) => a.id)
-          this.postForm.setValue({
-            title: this.postExistente.title,
-            description: this.postExistente.description,
-            content: this.postExistente.content,
-            categoria_id: (!this.postExistente.categoria) ? this.categoriesList[0].id : this.postExistente.categoria,
-            published: this.postExistente.published,
-            imagen: this.postExistente.imagen,
-            tags: tagExist,
-            anuncios: anunExist,
-          })
-        },
-        error: () => {
-          this.router.navigateByUrl('/auth/posts')
-        }
-      });
+    this.adminService.categorias().subscribe({
+      next: resp => {
+        this.categoriesList = resp;
+        console.log('categorias: ',this.categoriesList)
+      },
+      complete: () => {
+        this.activatedRoute.params.pipe(
+          switchMap(({ id }) => this.adminService.getPost(id))
+        )
+          .subscribe({
+            next: postExist => {
+              if (!postExist.categoria) {
+                this.cat = this.categoriesList[0].id;
+              } else {
+                console.log('postExist: ',postExist)
+                this.categoryPostId = postExist.categoria.id;
+                this.categoryPostName = postExist.categoria.name;
+                this.cat = postExist.categoria
+                // console.log('categoryPost ',this.categoryPost)
+                this.categoriesList = this.categoriesList.filter(e => e.id !== postExist.categoria.id);
+                console.log(' categorias filtradas: ',this.categoriesList)
+              }
+              this.postExistente = postExist;
+              this.isExist = true;
+              const anunExist = this.postExistente.anuncios.map((a) => a.id)
+              const tagExist = this.postExistente.tags.map((a) => a.id)
+              this.postForm.setValue({
+                title: this.postExistente.title,
+                description: this.postExistente.description,
+                content: this.postExistente.content,
+                categoria_id: (!this.postExistente.categoria) ? this.categoriesList[0].id : this.postExistente.categoria.id,
+                published: this.postExistente.published,
+                imagen: this.postExistente.imagen,
+                tags: tagExist,
+                anuncios: anunExist,
+              })
+            },
+            error: () => {
+              this.router.navigateByUrl('/auth/posts')
+            }
+          });
+      }
+    })
   }
 
   cambiar(id) {
@@ -90,9 +104,16 @@ export class AgregarComponent implements OnInit {
     this.toggleHtml = !this.toggleHtml
   }
 
+  onChangeDebounce(text, key: string) {
+    if (this.debounceTimer) clearTimeout(this.debounceTimer);
+    this.debounceTimer = setTimeout(() => {
+      console.log(text.innerHTML);
+      this.postForm.controls[key].setValue(text.innerHTML);
+      // this.mixin('success', `${key} actualizado`);
+    }, 1000);
+  }
+
   onContextChange(name, key: string) {
-    this.postForm.controls[key].setValue(name.innerHTML);
-    this.mixin('success', `${key} actualizado`);
   }
 
   insertarParrafo() {
@@ -201,6 +222,8 @@ export class AgregarComponent implements OnInit {
       anuncios: this.postForm.value['anuncios']!.toString(),
 
     }
+    console.log(this.postTemp);
+    
     if (this.postForm.invalid) {
       this.mixin('error', 'Todos los campos son obligatorios')
       return;
@@ -236,7 +259,6 @@ export class AgregarComponent implements OnInit {
     this.adminService.categorias().subscribe({
       next: resp => {
         this.categoriesList = resp;
-        console.log(this.categoriesList);
       }
     })
   }
