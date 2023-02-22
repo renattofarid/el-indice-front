@@ -37,7 +37,7 @@ export class SinglePostComponent implements OnInit {
       next: post => {
         this.post = post;
         this.exist = true;
-        this.linkShare = 'http://colegioelperegrino.com/#/posts/' + post.id;
+        this.linkShare = 'https://colegioelperegrino.com/#/posts/' + post.id;
         this.imageShare = post.imagen
       },
       error: () => {

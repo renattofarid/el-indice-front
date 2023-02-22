@@ -17,8 +17,8 @@ export class AgregarComponent implements OnInit {
   tagList: any[] = [];
   servicesList: any[] = [];
   categoriesList: any[] = [];
-  categoryPostId :any = null;
-  categoryPostName :any;
+  categoryPostId: any = null;
+  categoryPostName: any;
   postTemp!: PostRequest;
   isExist: boolean = false;
   postExistente!: Post;
@@ -49,12 +49,13 @@ export class AgregarComponent implements OnInit {
     this.tags();
     this.anuncios();
     if (!this.router.url.includes('editar')) {
+      this.categorias()
       return
     }
     this.adminService.categorias().subscribe({
       next: resp => {
         this.categoriesList = resp;
-        console.log('categorias: ',this.categoriesList)
+        console.log('categorias: ', this.categoriesList)
       },
       complete: () => {
         this.activatedRoute.params.pipe(
@@ -65,13 +66,13 @@ export class AgregarComponent implements OnInit {
               if (!postExist.categoria) {
                 this.cat = this.categoriesList[0].id;
               } else {
-                console.log('postExist: ',postExist)
+                console.log('postExist: ', postExist)
                 this.categoryPostId = postExist.categoria.id;
                 this.categoryPostName = postExist.categoria.name;
                 this.cat = postExist.categoria
                 // console.log('categoryPost ',this.categoryPost)
                 this.categoriesList = this.categoriesList.filter(e => e.id !== postExist.categoria.id);
-                console.log(' categorias filtradas: ',this.categoriesList)
+                console.log(' categorias filtradas: ', this.categoriesList)
               }
               this.postExistente = postExist;
               this.isExist = true;
@@ -223,7 +224,7 @@ export class AgregarComponent implements OnInit {
 
     }
     console.log(this.postTemp);
-    
+
     if (this.postForm.invalid) {
       this.mixin('error', 'Todos los campos son obligatorios')
       return;

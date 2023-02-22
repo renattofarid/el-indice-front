@@ -40,13 +40,13 @@
             </mat-form-field>
           </div>
           <div class="col-md-4">
-            <div class="form-floating mb-3" *ngIf="categoryPostId !== null">
+            <div class="form-floating mb-3" *ngIf="categoriesList !== null">
 
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label>Categoría</mat-label>
                 <select matNativeControl  formControlName="categoria_id">
                   <option [value]="categoryPostId"
-                    *ngIf="categoryPostId !== null" selected>{{categoryPostName}}</option>
+                    *ngIf="categoryPostId && categoryPostId !== null" selected>{{categoryPostName}}</option>
                   <option *ngFor="let cat of categoriesList" [value]="cat.id" (click)="cambiar(cat.id)">
                     {{cat.name}}
                   </option>
@@ -98,7 +98,7 @@
                     'background-color': '#'+cat['color']}">
                     {{ cat['name'] }}
                   </span>
-                  <h2 #titleInput class="title" *ngIf="postForm.value.title" contenteditable (keydown)="onChangeDebounce($event.target,'title')">
+                  <h2 #titleInput class="title" *ngIf="postForm.value.title" contenteditable (keydown)="onChangeDebounce(titleInput,'title')">
                   {{ postForm.value.title }}
                 </h2>
                 <!-- [value]="postForm.value.title" -->

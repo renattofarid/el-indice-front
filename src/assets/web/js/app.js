@@ -928,7 +928,7 @@
   
     const currentDate = document.querySelectorAll(".currentDate");
     if (currentDate.length > 0) {
-      const date = new Date().toLocaleDateString("en-us", {
+      const date = new Date().toLocaleDateString("es-MX", {
         weekday: "long",
         year: "numeric",
         month: "short",

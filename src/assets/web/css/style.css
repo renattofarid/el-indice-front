@@ -1132,7 +1132,7 @@ section,
 #back-to-top {
   font-size: 1rem;
   color: var(--color-white);
-  background: var(--color-primary);
+  background: #000;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -3402,7 +3402,7 @@ Modal
 // pre-loader
 =====================================*/
 #preloader {
-  background: url("../media/neeon.gif") rgba(255, 255, 255, 0.99) no-repeat scroll center center;
+  background: url("../media/elperegrino.gif") rgba(255, 255, 255, 0.99) no-repeat scroll center center;
   height: 100%;
   left: 0;
   overflow: visible;
@@ -3481,7 +3481,7 @@ Modal
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: var(--color-primary);
+  background: #6dd4fe;
   padding: 8px 6px;
   border-radius: 1.5rem;
 }
@@ -3702,7 +3702,7 @@ Modal
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #dc2335;
+  background-color: #fff;
 }
 
 [data-theme=dark] .topbar {
@@ -3883,7 +3883,7 @@ Modal
   font-size: 0.8125rem;
   text-transform: uppercase;
   margin-right: 12px;
-  color: #fff;
+  color: #000;
 }
 
 .rt-top-social li {
@@ -3896,7 +3896,7 @@ Modal
 
 .rt-top-social a {
   font-size: 0.8125rem;
-  color: #fff;
+  color: #000;
 }
 
 .rt-top-social a:hover {
@@ -4069,10 +4069,11 @@ Modal
 .main-menu__nav ul li>a {
   font-size: 0.9375rem;
   color: var(--color-black);
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
   display: inline-block;
   padding: 39px 6px;
+  font-size: 20px;
 }
 
 .header-main-style-5 .main-menu__nav ul li>a {
@@ -4750,6 +4751,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .header-middlebar.header-middlebar-style-8 {
   padding: 25px 0;
+  background-color: #6ed3ff;
 }
 
 .search-wrapper {
@@ -4912,7 +4914,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .banner.banner-style-2::after {
-  background-color: rgba(24, 24, 24, 0.5);
+  background-color: rgb(24 24 24 / 35%);
   z-index: -1;
 }
 
@@ -5043,7 +5045,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .banner.banner-style-7 .social-share-box-style-7 .rt-top-social a {
   font-size: 1.0625rem;
-  color: #fff;
+  color: #000;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
@@ -5064,7 +5066,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
   position: relative;
   display: inline-block;
   font-size: 0.8125rem;
-  color: #fff;
+  color: #000;
   letter-spacing: 0.1rem;
 }
 
@@ -5077,7 +5079,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
   transform: translateY(-50%);
   width: 22px;
   height: 2px;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .banner.banner-style-7::before,
@@ -5578,7 +5580,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   z-index: -1;
   padding-right: 30px;
 }
@@ -10984,7 +10986,7 @@ video {
 }
 
 [data-theme=dark] .contact-form-style-1 .form-group label {
-  color: var(--color-body);
+  color: #000000;
 }
 
 [data-theme=dark] .contact-form-style-1 .form-group .form-control {
@@ -12063,7 +12065,7 @@ video {
 // Footer
 =================================*/
 .footer {
-  background-color: #fff302;
+  background-color: #6cd4fe;
   position: relative;
   overflow: hidden;
   z-index: 1;
