@@ -4750,7 +4750,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .header-middlebar.header-middlebar-style-8 {
-  padding: 25px 0;
+  padding: 70px 0;
   background-color: #6ed3ff;
 }
 
@@ -12580,4 +12580,10 @@ video {
   .social-wrapper-line-style .wrapper-line {
     display: none;
   }
+}
+
+img.images-cont {
+  width: 100% !important;
+  height: 400px !important;
+  object-fit: cover;
 }
