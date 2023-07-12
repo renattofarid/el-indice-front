@@ -1,0 +1,52 @@
+<div style="padding: 3rem !important;">
+    <div class="pagetitle d-flex flex-row align-items-center justify-content-between gap-1">
+        <h1>ADMINISTRAR VIDEOS INSTITUCIONALES</h1>
+        <button mat-raised-button color="accent" (click)="createVideo()"><i class="fas fa-plus-circle"></i>
+            Colgar Datos de Video</button>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table mat-table [dataSource]="dataSource" matSort>
+
+                        <!-- ID Column -->
+                        <div matColumnDef="titulo">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                Título
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                {{(!row.titulo) ? 'Eliminado' : row.titulo}}
+                            </td>
+                        </div>
+
+                        <div matColumnDef="Acciones">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones</th>
+                            <td mat-cell *matCellDef="let row">
+                                <div class="example-button-row">
+                                    <button mat-mini-fab color="primary" (click)="updateVideo(row)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button mat-mini-fab color="warn" (click)="deleteVideo(row.id)">
+                                        <mat-icon><span class="material-symbols-outlined">
+                                                delete_forever
+                                            </span></mat-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </div>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Seleccione una página">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

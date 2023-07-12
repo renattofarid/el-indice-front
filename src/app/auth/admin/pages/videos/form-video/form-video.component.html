@@ -1,0 +1,31 @@
+<form [formGroup]="formVideo" (ngSubmit)="save()">
+  <h2 mat-dialog-title>{{ (!video.data) ? 'Crear' : 'Editar' }} Video</h2>
+  <mat-dialog-content class="mat-typography">
+
+    <div class="col-xxl-12 pb-2">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Título </mat-label>
+        <input type="text" matInput formControlName="titulo" autocomplete="off">
+        <mat-error *ngIf="formVideo.controls.titulo.hasError('required')">
+          Título es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-xxl-12 pb-2">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Url del iFrame del Video Youtube </mat-label>
+        <input type="email" matInput formControlName="url" autocomplete="off">
+        <mat-error *ngIf="formVideo.controls.url.hasError('required')">
+          Descripción es <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button color="warn" type="button" (click)="close()">Cancel</button>
+    <button mat-button color="primary" type="submit" cdkFocusInitial>{{ (!video.data) ? 'Crear' :
+      'Editar' }}</button>
+  </mat-dialog-actions>
+</form>

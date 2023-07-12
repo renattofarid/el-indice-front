@@ -22,6 +22,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/videos']" routerLinkActive="collapsed">
+            <i class="fas fa-play"></i>
+            <span>Videos</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" (click)="drawer.toggle()" [routerLink]="['/auth/posts']" routerLinkActive="collapsed">
             <i class="fas fa-book"></i>
             <span>Posts</span>

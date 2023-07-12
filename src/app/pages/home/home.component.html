@@ -5,7 +5,7 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="banner banner-style-2"
-          [ngStyle]="{'background-image': 'url(https://res.cloudinary.com/ligthsoft/image/upload/v1669870043/peregrino/cfhgsxlyawkr0jqckmcx.jpg)'}">
+          [ngStyle]="{'background-image': 'url(https://res.cloudinary.com/ligthsoft/image/upload/v1689194766/snqxyqznsr3sb8f6fnkg.jpg)'}">
           <div class="container">
             <div class="row justify-content-between">
               <div class="col-xl-6 col-lg-8">
@@ -326,6 +326,52 @@
                 </span>
               </div>
             </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end main post section style 1 -->
+
+<!-- start main post section style 1 -->
+<section class="rt-main-post-section main-post-section-style-1 section-padding" *ngIf="latestPosts">
+  <div class="container">
+    <div class="row gutter-24">
+      <h2 class="rt-section-heading">
+        <span class="rt-section-text">Videos Institucionales</span>
+        <span class="rt-section-dot"></span>
+        <span class="rt-section-line"></span>
+      </h2>
+
+      <div class="col-xl-12 col-lg-12">
+        <div class="row gutter-24">
+          <div class="col-xl-6 col-lg-12 animate__animated animate__fadeInUp"
+            *ngFor="let video of lastVideos; let i = index;" [attr.data-wow-delay]="(i+1)*400+'ms'"
+            data-wow-duration="800ms">
+            <!-- <div class="rt-post post-md style-10">
+              <div class="post-img">
+                <a href="#">
+                  <img [src]="video.imagen" alt="post" width="696" height="491">
+                </a>
+              </div>
+            </div> -->
+            <div class="post-content">
+              <h3 class="post-title">
+                <a href="#">
+                  {{video.titulo}}
+                </a>
+              </h3>
+              <!-- <span class="rt-meta">
+                <i class="far fa-calendar-alt icon"></i>
+                {{video.created_at}}
+              </span> -->
+            </div>
+            <div [innerHTML]="video.url"></div>
           </div>
 
         </div>

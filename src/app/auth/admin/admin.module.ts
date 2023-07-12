@@ -47,6 +47,8 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
 import { SlidersComponent } from './pages/sliders/sliders.component';
 import { FormSliderComponent } from './pages/sliders/form-slider/form-slider.component';
+import { VideosComponent } from './pages/videos/videos.component';
+import { FormVideoComponent } from './pages/videos/form-video/form-video.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { FormSliderComponent } from './pages/sliders/form-slider/form-slider.com
     InscriptionsComponent,
     SlidersComponent,
     FormSliderComponent,
+    VideosComponent,
+    FormVideoComponent
   ],
   imports: [
     CommonModule,
