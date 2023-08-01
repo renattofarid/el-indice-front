@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ScriptService } from 'src/app/auth/admin/pages/images/script.service';
-import { ImagesService } from '../services/images.service';
-import { Image } from '../interfaces/image';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { CategoryImageWithMedia, CategoryImagesService } from 'src/app/auth/services/category-images.service';
+import { Image } from 'src/app/auth/services/images.service';
 
 @Component({
   selector: 'app-folder',
@@ -12,12 +11,12 @@ import { switchMap } from 'rxjs';
 })
 export class FolderComponent implements OnInit {
 
-  images!: Image[];
-  imagesFiltered: Image[] = [];
+  folder!: CategoryImageWithMedia;
   nameFolder !:any;
+  loading = true;
   constructor(
     private ss: ScriptService,
-    private imagesService: ImagesService,
+    private categoryImagesService: CategoryImagesService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
@@ -27,13 +26,14 @@ export class FolderComponent implements OnInit {
 
     this.activatedRoute.params.subscribe({
       next: ({id}) => {
-        this.nameFolder = id;
-        this.imagesService.getImages().subscribe({
+        this.categoryImagesService.getCategoryImage(id).subscribe({
           next: v => {
-            this.images = v;
+            this.nameFolder = v.description;
+            this.folder = v;
           },
           complete: () => {
-            this.imagesFiltered = this.images.filter((i) => i.folder === id)
+            this.loading = false;
+            // this.imagesFiltered = this.images.filter((i) => i.folder === id)
           }
         });
       },

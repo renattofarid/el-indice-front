@@ -1,0 +1,36 @@
+<div style="padding: 3rem !important;">
+    <div class="d-flex flex-row align-items-center justify-content-between gap-1">
+        <div class="pagetitle">
+            <h1>ADMINISTRAR FOLDERS</h1>
+        </div>
+        <button mat-raised-button color="accent" (click)="setShowForm('create')"><i class="fas fa-plus-circle"></i>
+            Nuevo Folder</button>
+        <!-- div que tenga input para crear el nuevo folder estilalo bonito -->
+    </div>
+    <div class="input-group mb-3" *ngIf="showForm">
+        <input type="text" class="form-control" placeholder="Nuevo Folder" aria-label="Nuevo Folder"
+            aria-describedby="button-addon2" [formControl]="formCategoryImage.description">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+            (click)="saveCategoryImage()">Guardar</button>
+    </div>
+    <div class="row">
+        <div class="col-4 pt-2" *ngFor="let category of categoryImages">
+            <mat-card>
+                <mat-card-title>{{ category.description }}</mat-card-title>
+                <mat-card-content>
+                    <button matSuffix mat-icon-button aria-label="Clear" (click)="goToCategoryImage(category.id)">
+                        <mat-icon> <span class="material-symbols-outlined">
+                                chevron_right
+                            </span> </mat-icon> Ir al Folder
+                    </button>
+                </mat-card-content>
+                <mat-card-actions class="d-flex justify-content-between">
+                    <button mat-button color="accent" (click)="setShowForm('update', category)"><i
+                            class="fas fa-pen"></i></button>
+                    <button mat-button color="warn" (click)="deleteCategoryImage(category.id)"><i
+                            class="fas fa-trash"></i></button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

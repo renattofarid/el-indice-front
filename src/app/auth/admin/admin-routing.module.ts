@@ -13,6 +13,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
 import { SlidersComponent } from './pages/sliders/sliders.component';
 import { VideosComponent } from './pages/videos/videos.component';
+import { CategoryImagesComponent } from './pages/category-images/category-images.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,14 @@ const routes: Routes = [
         component: CategoriasAnunciosComponent,
       },
       {
+        path: 'folders',
+        component: CategoryImagesComponent,
+      },
+      {
+        path: 'folders/:id',
+        component: ImagesComponent,
+      },
+      {
         path: 'posts',
         component: PostsComponent,
       },
@@ -58,10 +67,6 @@ const routes: Routes = [
       {
         path: 'anuncios/editar/:id',
         component: AgregarAnuncioComponent,
-      },
-      {
-        path: 'imagenes',
-        component: ImagesComponent,
       },
       {
         path: 'mensajes-contacto',

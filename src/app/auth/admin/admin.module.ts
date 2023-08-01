@@ -49,6 +49,7 @@ import { SlidersComponent } from './pages/sliders/sliders.component';
 import { FormSliderComponent } from './pages/sliders/form-slider/form-slider.component';
 import { VideosComponent } from './pages/videos/videos.component';
 import { FormVideoComponent } from './pages/videos/form-video/form-video.component';
+import { CategoryImagesComponent } from './pages/category-images/category-images.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { FormVideoComponent } from './pages/videos/form-video/form-video.compone
     SlidersComponent,
     FormSliderComponent,
     VideosComponent,
-    FormVideoComponent
+    FormVideoComponent,
+    CategoryImagesComponent
   ],
   imports: [
     CommonModule,

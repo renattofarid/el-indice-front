@@ -1,16 +1,36 @@
 <div style="padding: 3rem !important;">
-  <div class="pagetitle">
-    <h1>ADMINISTRAR ÁLBUMS DE FOTOS</h1>
+  <div class="pagetitle d-flex justify-content-between py-2">
+    <h1>Álbum: <strong>{{categoryImage?.description | uppercase}}</strong></h1>
+      <button mat-flat-button aria-label="Regresar" color="warn" (click)="goToFolders()">
+        <mat-icon> <span class="material-symbols-outlined">
+          arrow_back
+          </span></mat-icon> Regresar
+    </button>
   </div>
-  <div class="d-flex flex-row align-items-center float-end gap-1">
-    <button
-      class="inline-flex items-center px-4 py-2 bg-red-400 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-      id="upload_widget"><i class="fas fa-plus-circle"></i>
-      Cargar imágenes</button>
-
-    <button mat-raised-button color="accent" id="open-btn"><i class="fas fa-plus-circle"></i>
-      Administrador de recursos</button>
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <form [formGroup]="form" enctype="multipart/form-data" class="w-50">
+        <div class="d-flex flex-row gap-1">
+          <input type="file" multiple class="form-control w-100" accept="image/png,image/jpeg" id="formFile"
+            (change)="captureImages($event)" formControlName="image">
+          <button mat-raised-button color="accent" (click)="saveImages()" [disabled]="newImages.length === 0" class="w-50"><i
+              class="fas fa-plus-circle"></i> Agregar Imagenes</button>
+        </div>
+      </form>
+    </div>
   </div>
   <div class="row mt-4">
+    <div class="col-3 pt-2" *ngFor="let image of images">
+      <mat-card>
+        <mat-card-actions class="d-flex justify-content-end">
+          <button mat-flat-button color="warn" (click)="deleteImage(image.id)"><i class="fas fa-trash"></i></button>
+        </mat-card-actions>
+        <mat-card-content>
+          <img [src]="image.media[0].original_url" style="    object-fit: cover;
+          width: 100%;
+          height: 250px;">
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
